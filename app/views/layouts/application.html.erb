@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<%= render 'layouts/doc_head' %>
+<body>
+  <%= render 'layouts/header' %>
+  <%= render 'layouts/modal' %>
+  <div id="wrapper">
+    <div class="container">
+      <div class="alert-content">
+        <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %>"><%= value %></div>
+        <% end %>
+      </div>
+    </div>
+    <div id="content" class="container">
+      <%= yield %>
+    </div>
+    <%= render 'layouts/footer' %>
+    <% if Rails.env.development? %>
+      <div id="debug" class="container">
+        <%= debug(params) %>
+      </div>
+    <% end %>
+  </div>
+</body>
+</html>

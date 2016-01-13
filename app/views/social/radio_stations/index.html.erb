@@ -1,0 +1,23 @@
+<% provide :title, "Radio Station Nicknames" %>
+<% provide :description, "A reference list of every radio station nickname in America. Browse by nickname, 
+                          frequency, call sign, format, city, or state" %>
+<% provide :header_image, image_path("radio_station_header_wide.jpg") %>
+<div class="container">
+  <h1>Radio Station Nicknames</h1>
+  <div class="row" id="description">
+    <div class="col-md-12">
+    <p>
+      Browse through every radio station nickname in America! Sort by nickname, frequency, call sign, format, city, or state.
+    </p>
+
+    <p>
+      Did we miss a station or make a mistake? <%= link_to "Let Us Know", contact_path %>
+    </p>
+
+    <p>
+      Note: Stations listed as “No Nickname” do not have a nickname aside from their call sign and/or frequency. 
+    <p>
+    </div>
+  </div>
+  <%= render 'social/nameable_table' %>
+</div>

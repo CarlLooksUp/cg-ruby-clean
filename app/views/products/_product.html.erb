@@ -1,0 +1,72 @@
+<h1><%= product.name_object.name %></h1>
+<div id="business-info">
+  <div class="row">
+    <div class="fieldname col-md-2 col-md-offset-4">
+      Trademark
+    </div>
+    <div class="detail col-md-2">
+      <%= product.name_object.name %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="fieldname col-md-2 col-md-offset-4">
+      Product Category
+    </div>
+    <div class="detail col-md-2">
+      <%= product.product_types.map{ |product_type| product_type.label}.join("; ") %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="fieldname col-md-2 col-md-offset-4">
+      Description
+    </div>
+    <div class="detail col-md-2">
+      <%= product.description %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="fieldname col-md-2 col-md-offset-4">
+      Date of First Use
+    </div>
+    <div class="detail col-md-2">
+      <%= product.date_of_first_use %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="fieldname col-md-2 col-md-offset-4">
+      Owned By
+    </div>
+    <div class="detail col-md-2">
+      <% if not product.business.nil? %>
+        <%= link_to product.owner_name, business_path(product.business) %>
+      <% elsif not product.business_name.blank? %>
+        <%= product.owner_name %>
+        <%= link_to "List This Name on Cognate", new_business_path(new_name: product.owner_name), class: 'btn btn-success' %>
+      <% else %>
+        <%= link_to product.owner_name, user_path(product.user) %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="fieldname col-md-2 col-md-offset-4">
+      Product Image
+    </div>
+    <div class="detail col-md-2">
+      <%= link_to ("#{image_tag product_full_image_path(product), id: 'productImg'}").html_safe, product_full_image_path(product) unless product.product_image_filename.blank? %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="fieldname col-md-2 col-md-offset-4">
+      Logo
+    </div>
+    <div class="detail col-md-2">
+      <%= link_to ("#{image_tag product_logo_image_path(product), id: 'logoImg'}").html_safe, product_logo_image_path(product) unless product.logo_image_filename.blank? %>
+    </div>
+  </div>
+</div>

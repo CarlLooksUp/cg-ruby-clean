@@ -1,0 +1,15 @@
+<% provide :title, "Golf Course Names" %>
+<% provide :description, "A reference list of North American golf course names" %>
+<% provide :header_image, image_path("golf_course_header_wide.jpg") %>
+<div class="container">
+<h1>Golf Course Names</h1>
+<div class="row" id="description">
+  <div class="col-md-12">
+    <p>
+      Search through over 10,500 golf course names, including every course in America!
+      Sort by name, city, or state. Did we miss a course or make a mistake? <%= link_to "Let Us Know", contact_path %>
+    </p><br>
+  </div>
+</div>
+<%= render 'social/nameable_table' %>
+</div>

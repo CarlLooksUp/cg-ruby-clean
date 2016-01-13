@@ -1,0 +1,111 @@
+<div class="row">
+  <div class="col-md-8 col-offset-md-2">
+
+    <div id="legend" class="col-md-12"><span class="pull-right">* indicates required field</span></div>
+    <%= simple_form_for(@business, html: {class: 'form-horizontal'}) do |f| %>
+      <div id="tabContainer" class="well">
+
+        <% if @is_new or admin? %>
+          <%= f.simple_fields_for @business.name_object do |name_form| %>
+            <%= name_form.input :name, label: "Business Name",
+                                       label_html: { class: 'col-md-4'},
+                                       input_html: { class: 'col-md-6'},
+                                       tooltip: t(:name, scope: :business_form) %>
+            <%= name_form.input :id, as: :hidden %>
+
+          <% end %>
+        <% end %>
+        <%= f.input :sic_code, collection: @sic_codes, as: :grouped_select,
+                               group_method: :last, label_method: :last,
+                               value_method: :first, label: "Business Category (SIC)",
+                               required: true,
+                               label_html: { class: 'col-md-4' },
+                               disabled: (not (@is_new or admin?)),
+                               tooltip: t(:sic_code, scope: :business_form) %>
+
+        <%= f.input :entity_type, as: :grouped_select,
+                                  collection: @entity_types,
+                                  group_method: :last,
+                                  label_method: :last, value_method: :first,
+                                  label_html: { class: 'col-md-4'},
+                                  label: "Entity Type (LLC, Corp., etc...)",
+                                  tooltip: t(:entity_type, scope: :business_form) %>
+        <%= f.input :tagline, label_html: { class: 'col-md-4' },
+                              label: "Your Company's Tagline",
+                              tooltip: t(:tagline, scope: :business_form) %>
+        <%= f.input :address1, label_html: { class: 'col-md-4'},
+                               label: "Address",
+                               tooltip: t(:address1, scope: :business_form) %>
+        <%= f.input :address2, label_html: { class: 'col-md-4'},
+                               label: "Line 2 (optional)" %>
+        <%= f.input :city, required: true, label_html: { class: 'col-md-4'} %>
+        <%= f.association :state, required: true, label_html: { class: 'col-md-4'}, disabled: (not (@is_new or admin?)) %>
+        <%= f.input :zip_code, label_html: { class: 'col-md-4'}, input_html: { maxlength: 5 } %>
+        <%= f.input :phone, label_html: { class: 'col-md-4'},
+                            tooltip: t(:phone, scope: :business_form) %>
+
+        <%= f.input :website, label_html: { class: 'col-md-4'},
+                              tooltip: t(:website, scope: :business_form) %>
+        <%= f.input :image_file, as: :file, label: "Logo or Image of Your Location", label_html: { class: 'col-md-4' },
+                                 tooltip: t(:image, scope: :business_form) %>
+        <%= f.input :in_use, as: :button_radio, label: "Is this mark currently in use?", label_html: { class: 'col-md-4' },
+                             required: true,
+                             tooltip: t(:in_use?, actual_use: link_to(t(:actual_use, scope: :business_form), actual_use_path),
+                                        scope: :business_form) %>
+
+        <div id="not-used" class="collapse <%= "in" if(not @business.in_use and not @business.in_use.nil?) %>">
+          <%= f.input :plans_for_use, label_html: { class: 'col-md-4'}, required: true,
+                                      label: "Plans for Use",
+                                      tooltip: t(:plans_for_use, scope: :business_form) %>
+          <%= f.input :planned_date, as: :date, end_year: Date.today.year + 5,
+                                     start_year: Date.today.year,
+                                     prompt: true,
+                                     label_html: { class: 'col-md-4'},
+                                     label: 'Planned Date of First Use',
+                                     tooltip: t(:planned_date, scope: :business_form) %>
+        </div>
+        <div id="used" class="collapse <%= "in" if @business.in_use %>">
+          <%= f.input :date_of_first_use, as: :date, end_year: Date.today.year - 90,
+                                          start_year: Date.today.year,
+                                          prompt: true,
+                                          label_html: { class: 'col-md-4'},
+                                          label: 'Date of First Use',
+                                          tooltip: t(:date_of_first_use, scope: :business_form) %>
+          <%= f.input :is_interstate, as: :button_radio, label: "Do you sell out of state?", label_html: { class: 'col-md-4' },
+                                      required: true,
+                                      tooltip: t(:is_interstate, scope: :business_form) %>
+          <div id="interstate" class="collapse <%= "in" if @business.is_interstate %>">
+            <%= f.input :operating_region, collection: @state_abbreviations, label_html: { class: 'col-md-4' },
+                                           input_html: { multiple: true },
+                                           tooltip: t(:operating_region, scope: :business_form) %>
+          </div>
+          <%= f.input :proof_of_use_file, as: :file, label: "Proof of Use", label_html: { class: 'col-md-4' },
+                                          required: true,
+                                          tooltip: t(:proof_of_use, scope: :business_form) %>
+        </div>
+        <div class="form-group">
+          <label class="control-label col-md-4">Expiration Date</label>
+          <div class="col-md-6">
+            <% if not @business.nil? and not @business.payment_expire.nil? %>
+              <% if not @business.price_tier.nil? and (@business.price_tier.machine_label == 'lifetime' or @business.price_tier.machine_label == 'life_renewal') %>
+                <%= "Lifetime" %>
+              <% else %>
+                <%= @business.payment_expire.to_s :date %> <%= link_to "Renew", businesses_renew_path(@business) %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        <% if admin? %>
+          <%= f.input :status, as: :select, collection: @status_flags,
+                               label: "Status", label_html: { class: 'col-md-4' } %>
+          <%= f.input :source, as: :select, collection: @source_flags,
+                               label: "Source", label_html: { class: 'col-md-4' } %>
+        <% end %>
+      </div>
+
+      <div id="editRegSubmit" class="pull-right"><!--class reg-submit-->
+          <%= f.button :submit, 'Save Changes', class: 'btn btn-success btn-block' %>
+      </div>      
+    <% end %>
+  </div>
+</div>

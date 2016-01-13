@@ -1,0 +1,69 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-inner">
+    <nav>
+      <div class="container nav-border-bottom">
+        <div class="navbar-header">
+         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <%= link_to (image_tag 'coglogo.png', class: 'logo'), main_app.root_path, 
+                      id: "logo", class: "navbar-brand" %>
+        </div>
+        <div class="collapse navbar-collapse" id="collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                List Your Mark
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Business", main_app.new_business_path %></li>
+                <li><%= link_to "Product", main_app.new_product_path %></li>
+              </ul>
+            <li><%= link_to "Search",   main_app.search_path %></li>
+            <li><%= link_to "Pricing", main_app.pricing_path %></li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                Name Lists<span class="menu-super"><sup>BETA</sup></span>
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Golf Courses", main_app.social_golf_courses_path %></li>
+                <li><%= link_to "Ski Areas", main_app.social_ski_areas_path %></li>
+                <li><%= link_to "Radio Stations", main_app.social_radio_stations_path %></li>
+                <li><%= link_to "Candles", main_app.social_candles_path %></li>
+              </ul>
+            </li>
+            <li><%= link_to "FAQ", main_app.faq_path %></li>
+            <li><%= link_to "Blog", blogit.blog_root_path %></li>
+            <% if signed_in? %>
+              <li><%= link_to "My Account", main_app.profile_path %>
+              <li><%= link_to "Sign Out", main_app.signout_path, method: "delete" %></li>
+            <% else %>
+              <li><%= link_to "Sign In", main_app.signin_path %></li>
+            <% end %>
+          </ul>
+
+          <% if admin? %>
+          <ul class="nav navbar-nav pull-right">
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                Admin
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Users", main_app.users_path %></li>
+                <li><%= link_to "User Businesses", main_app.admin_user_submitted_business_path %></li>
+                <li><%= link_to "Coupons", main_app.new_coupon_path %></li>
+              </ul>
+            </li>
+          </ul>
+          <% end %>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>  

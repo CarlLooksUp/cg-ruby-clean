@@ -1,0 +1,24 @@
+<!-- content start -->
+<table class="row">
+<tr>
+<td class="wrapper last">
+
+<table class="twelve columns">
+<tr>
+<td>
+
+<%= image_tag attachments['coglogo-color.png'].url, class: "hero-img" %>
+<br>
+<h4>Hello,</h4>
+<p class="lead">Thank you for your interst in Cognate. Your code for <%= discount(@coupon) %> off your Cognate registration is:</p>
+<h4><%= @coupon.code %></h4>
+
+</td>
+<td class="expander"></td>
+</tr>
+</table>
+
+</td>
+</tr>
+</table>
+

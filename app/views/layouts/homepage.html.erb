@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<%= render 'layouts/doc_head' %>
+<body>
+  <%= render 'layouts/header' %>
+  <div id="home_header" style="background-image: url(<%= image_path 'bg_skyline.png' %>)">
+    <div id="home_wrapper">
+      <div class="container">
+        <div class="alert-content">
+          <% flash.each do |key, value| %>
+            <div class="alert alert-<%= key %>"><%= value %></div>
+          <% end %>
+        </div>
+      </div>
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+      <% if Rails.env.development? %>
+        <div id="debug" class="container">
+          <%= debug(params) %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</body>
+</html>

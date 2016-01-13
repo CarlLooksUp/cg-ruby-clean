@@ -1,0 +1,503 @@
+// Place all the styles related to the Businesses controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$full-user-color: #76FF5E;  //green
+$no-proof-color: #FFFC5E;   //yellow
+$not-in-use-color: #7F7F7F; //greyed out
+$state-corp-color: #6A5EFF; //blue
+$state-tm-color:  #000000;  //dark-grey or black
+$federal-tm-color: #F1615E; //red
+
+
+#wrapper {background-color: #F2F2F2 !important;}
+
+DIV#content.container {width: 1200px;}
+
+/* SEARCH CONTAINER */
+
+#search-container {
+    background-color: #FAFAFA;
+    box-shadow: rgba(0,0,0,.5) 0 5px 6px;
+    -webkit-box-shadow: rgba(0, 0, 0, .5) 0 3px 2px;
+    -moz-box-shadow: rgba(0, 0, 0, .5) 0 1px 3px;
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    margin-bottom: 40px;
+    border-radius: 4px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 70px;
+    height: 300px;
+
+
+}
+
+/* Search Title */
+
+DIV#search-title {
+    text-align: center;
+    display: initial;
+
+}
+
+DIV#search-title H1{
+    padding-bottom: 0px;
+    line-height: 50px;
+
+}
+
+
+
+/* Search Bar */
+INPUT#submit_search.btn {
+    border-radius: 0px;
+}
+
+#submit_search{
+    height: 35px; 
+    vertical-align: top; 
+    border: none; 
+    margin-left: -4px;
+    border-top-right-radius: 4px !important;
+    border-bottom-right-radius: 4px !important;
+    width: 100px;
+}
+
+#search {
+    height: 35px;
+    width: 400px;
+    text-align: left;
+    border: 2px solid;
+    padding-left: 10px;
+    border-color: #D8D8D8;
+    border-right:none;
+    border-top-left-radius: 4px !important;
+    border-bottom-left-radius: 4px !important;
+}
+
+DIV#search_bar {  
+    margin-top: 20px;
+    display: block;
+    text-align: center;
+    width: 100%;
+    margin-left: 0px;
+}
+
+/* Legend */
+#legend {
+    display: block;
+    font-style: italic;
+    padding: 15px;
+
+}
+
+DIV#legend {
+    margin-left: 25px;    
+    margin-right: 25px;
+}
+
+DIV#legend>TABLE>TBODY>TR {
+    border-top: 2px solid #DDDDDD;
+    border-bottom: 2px solid #DDDDDD;
+    border-right: 2px solid #DDDDDD;
+
+}
+
+DIV#legend>TABLE>TBODY>TR>TD {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+
+}
+
+
+
+/* Filter Options */
+
+DIV#search-filter {
+    width: 100%;
+}
+
+.bootstrap-select {
+    width: 170px !important;
+}
+
+
+BUTTON[data-id="state_filter"] {
+    background: #FAFAFA; 
+    /*
+    background: #E6E6E6;
+    border: none;
+    */
+    border-left: 2px solid #D8D8D8;
+    border-bottom: 2px solid #D8D8D8;
+    border-top: 2px solid #D8D8D8;
+    border-right: 2px solid #D8D8D8;
+    width: 150px !important;
+    padding-right: 0px !important;
+}
+
+BUTTON[data-id="source_filter"] {
+    background: #FAFAFA; 
+    /*
+    background: #E6E6E6;
+    border: none;
+    */
+    border-left: 2px solid #D8D8D8;
+    border-bottom: 2px solid #D8D8D8;
+    border-top: 2px solid #D8D8D8;
+    border-right: 2px solid #D8D8D8;
+    width: 150px !important;
+}
+
+TABLE#search_options {
+    margin-right: auto;
+    margin-left: auto;
+    
+}
+
+
+TABLE#search_options>TBODY>TR>TD {
+    text-align: left;
+    width: 170px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#filter_by {
+    width: 84px !important;
+    padding-left: 10px;
+}
+
+#filter_by SPAN {
+    background-color: #FAFAFA; 
+    /*
+    background-color: #428bca;
+    */
+    border-radius: 4px;
+    color: #848484;
+    font-weight: normal;
+    text-align: center !important;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 5px;
+    padding-left: 5px;
+    vertical-align: middle !important;
+
+}
+
+#exact_search {
+    width: 100px !important;
+}
+
+TD#state-filter {
+    padding-top: 20px !important;
+}
+
+TD#source-filter {
+    padding-top: 20px !important;
+}
+
+#exact_search SPAN:first-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    font-weight: normal;
+    background-color: #E6E6E6;
+    text-align: center !important;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 5px;
+    padding-left: 5px;
+    vertical-align: middle !important;
+
+}
+
+#exact_search SPAN:nth-child(2) {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    font-weight: normal;
+    background-color: #E6E6E6;
+    text-align: center !important;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 7px;
+    padding-left: 5px;
+    vertical-align: middle !important;
+
+}
+
+/* Result Table */
+
+DIV#bus_container {
+   
+    box-shadow: rgba(0,0,0,.5) 0 1px 3px; 
+    -webkit-box-shadow: rgba(0, 0, 0, .5) 0 1px 3px;
+    -moz-box-shadow: rgba(0, 0, 0, .5) 0 1px 3px;
+    border-radius: 4px; 
+    background-color: #FAFAFA; 
+    padding-left:33px;
+    padding-right:33px;
+    padding-bottom:33px;
+    display: none;
+   
+}
+
+.container {padding-left: 0px !important; padding-right: 0px !important;}
+
+#biz-name {width: 440px; }
+#biz-address {width: 315px;}
+#biz-city {width: 145px;}
+#biz-state {width: 30px; text-align: center;}
+#biz-website {width: 210px;}
+
+DIV#bus_container TABLE {width: 100%;}
+
+DIV#bus_container TABLE>THEAD>TR>TD {
+    padding-top: 12px;
+    padding-left: 8px;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+
+DIV#bus_container TABLE>TBODY>TR>TD {
+    height: 58px;
+    padding-top: 8px ;
+    padding-bottom: 8px; 
+    padding-left: 8px;
+    padding-right: 13px;
+}
+
+DIV#bus_container TABLE>TBODY>TR {
+    border-top: 0px solid;
+    border-bottom: 1px #E6E6E6 solid;
+    border-left: 0px solid;
+    border-right: 0px;
+    margin-bottom: 1px;
+    height: 57px;
+
+
+}
+
+DIV#bus_container TABLE>TBODY>TR:last-child {border-bottom: 0px !important;}  
+
+DIV#bus_container TABLE>TBODY>TR:hover {background-color: #E6E6E6 !important; }
+
+DIV#bus_table {position: relative;}
+
+TD#source-note {
+    z-index: 0; 
+    position: absolute; 
+    width: 60px;
+}
+
+
+DIV#source-pop-out {
+    height:42px; 
+    left: 0px;
+    position: absolute;
+    opacity: 0.85;
+    font-weight: bold;
+    padding-top: 10px; 
+    padding-left: 6px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    }
+
+
+/* LOADING INDICATOR */
+
+#working {
+    text-align: center;
+    /*
+    opacity: 0.3;
+    text-shadow: 2px 2px #D8D8D8;
+    font-weight: bold;
+    font-size: 30px;
+    */
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-style: italic;
+    display: block;
+}
+
+#search-logo {
+    height: 48px;
+    width: 390px;
+
+}
+
+/* RESULT COUNT */
+
+#result-count {
+    color: #BDBDBD;
+    background-color: #FAFAFA; 
+    width: 100%;
+    height: 28px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+    margin-bottom: 5px;
+    text-align: center;
+
+}
+
+/* NO RESULT */
+#no-results {
+   text-align: center;
+   opacity: 0.3;
+   margin-top: 30px;
+   margin-bottom: 20px;
+   font-weight: bold;
+   font-size: 30px;
+   font-style: italic;
+   text-shadow: 2px 2px #D8D8D8;
+}
+
+
+/* Pagination */
+
+#bus_page {
+    text-align: center; 
+    display: none;
+}
+
+#bus_page>UL.pagination {
+    box-shadow: rgba(0,0,0,.5) 0 1px 3px;
+    -webkit-box-shadow: rgba(0, 0, 0, .5) 0 1px 3px;
+    -moz-box-shadow: rgba(0, 0, 0, .5) 0 1px 3px; 
+    background-color: #FAFAFA; 
+}
+
+UL.pagination>li {
+    cursor: pointer;
+}
+
+tr {
+    margin-bottom: 1px;
+}
+
+.flag-user-full {
+    border-left: 5px solid $full-user-color;
+}
+
+.flag-user-no-proof {
+    border-left: 5px solid $no-proof-color;
+}
+
+.flag-user-not-in-use {
+    border-left: 5px solid $not-in-use-color;
+}
+
+.flag-state-corp {
+    border-left: 5px solid $state-corp-color;
+}
+
+.flag-state-tm {
+    border-left: 5px solid $state-tm-color;
+}
+
+.flag-federal-tm {
+    border-left: 5px solid $federal-tm-color;
+}
+
+.fieldname {
+    font-weight: bold;
+}
+
+.reg-submit {
+    width: 375px;
+    padding-left: 5px;
+    padding-right: 15px;
+    margin-left: 125px;
+}
+
+.page-hide {
+    display: none;
+}
+
+.page-in {
+    display: block;
+}
+
+#progressImg {
+    padding: 20px;
+
+}
+
+#new_business div.has-error {
+    background-color: #FFAAAA;
+    border: 1px solid #F55;
+    border-radius: 5px;
+}
+
+#new_business div.has-warning {
+    background-color: #FCF8E3;
+    border: 1px solid #FAEBCC;
+    border-radius: 5px;
+}
+
+.cc-icon {
+    display: inline-block;
+    height: 32px;
+    width: 32px;
+}
+
+#american_express {
+    &.grey {
+        background-image: image-url('cc_icons/amex_32_grey.png');
+    }
+    &.highlight {
+        background-image: image-url('cc_icons/amex_32.png');
+    }
+}
+ 
+#discover {
+    &.grey {
+        background-image: image-url('cc_icons/discover_32_grey.png');
+    }
+    &.highlight {
+        background-image: image-url('cc_icons/discover_32.png');
+    }
+}
+
+#mastercard {
+    &.grey {
+        background-image: image-url('cc_icons/mastercard_32_grey.png');
+    }
+    &.highlight {
+        background-image: image-url('cc_icons/mastercard_32.png');
+    }
+}
+
+#visa {
+    &.grey {
+        background-image: image-url('cc_icons/visa_32_grey.png');
+    }
+    &.highlight {
+        background-image: image-url('cc_icons/visa_32.png');
+    }
+}
+
+
+#regSubmit, #editRegSubmit{ 
+    .btn-block {
+        padding: 6px 12px;
+    }
+}
+
+#logoImg {
+    max-width: 200px;
+}
+
+tr.expired {
+    color: #999999;
+    
+    a {
+        color: #999999;
+    }
+}
+
+

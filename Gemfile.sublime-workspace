@@ -1,0 +1,539 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"in",
+				"input"
+			],
+			[
+				"link",
+				"link_2"
+			],
+			[
+				"link_",
+				"link_2"
+			],
+			[
+				"searching",
+				"searching"
+			],
+			[
+				"registering",
+				"registering"
+			],
+			[
+				"C",
+				"Cogname"
+			],
+			[
+				"add",
+				"addDomListener"
+			],
+			[
+				"stat",
+				"static_map"
+			],
+			[
+				"valid",
+				"validEmail"
+			],
+			[
+				"requi",
+				"required"
+			],
+			[
+				"require",
+				"requiredFilledIn"
+			],
+			[
+				"cont",
+				"contact_path"
+			],
+			[
+				"li",
+				"li	Tag"
+			],
+			[
+				"Benn",
+				"Bennett"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"und",
+				"undeclaredVariable"
+			],
+			[
+				"y",
+				"y"
+			],
+			[
+				"my",
+				"my_array"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"co",
+				"console"
+			],
+			[
+				"padd",
+				"padding-bottom"
+			],
+			[
+				"paddi",
+				"padding-bottom"
+			],
+			[
+				"inl",
+				"inline"
+			],
+			[
+				"mar",
+				"margin-left"
+			],
+			[
+				"max",
+				"max-width"
+			],
+			[
+				"padding",
+				"padding"
+			],
+			[
+				"border",
+				"border-style"
+			],
+			[
+				"border-col",
+				"border-color"
+			],
+			[
+				"min",
+				"min-width"
+			],
+			[
+				"rotate",
+				"rotateY"
+			],
+			[
+				"rg",
+				"rgba()"
+			],
+			[
+				"paddin",
+				"padding-bottom"
+			],
+			[
+				"marg",
+				"margin-top"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"background",
+				"background"
+			],
+			[
+				"back",
+				"background"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"bordr",
+				"border-radius"
+			],
+			[
+				"list-sty",
+				"list-style-type"
+			],
+			[
+				"list",
+				"list-style"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"list-style",
+				"list-style-position"
+			],
+			[
+				"tex",
+				"text-decoration"
+			],
+			[
+				"bagrou",
+				"background-color"
+			],
+			[
+				"bord",
+				"border"
+			],
+			[
+				"background-c",
+				"background-color"
+			],
+			[
+				"font",
+				"font"
+			],
+			[
+				"inli",
+				"inline-block"
+			],
+			[
+				"font-",
+				"font-weight"
+			],
+			[
+				"backgroudn-",
+				"background-color"
+			],
+			[
+				"op",
+				"option	Tag"
+			],
+			[
+				"cel",
+				"cellspacing	Attr"
+			],
+			[
+				"i",
+				"id	Attr"
+			],
+			[
+				"o",
+				"ol	Tag"
+			],
+			[
+				"br",
+				"br"
+			],
+			[
+				"marin",
+				"margin-right"
+			],
+			[
+				"font-s",
+				"font-size"
+			],
+			[
+				"s",
+				"samp	Tag"
+			],
+			[
+				"h",
+				"href	Attr"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 267.0,
+		"selected_items":
+		[
+			[
+				"Snippet: ",
+				"Snippet: html"
+			]
+		],
+		"width": 575.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/goredsox24455/Projects/treebook/app/views/statuses/show.html.erb",
+		"/Users/goredsox24455/Projects/treebook/app/models/status.rb",
+		"/Users/goredsox24455/Projects/treebook/app/views/statuses/index.html.erb",
+		"/Users/goredsox24455/Projects/treebook/app/models/user.rb",
+		"/Users/goredsox24455/Projects/treebook/app/views/statuses/_form.html.erb",
+		"/Users/goredsox24455/cg-ruby/app/models/business.rb",
+		"/Users/goredsox24455/Projects/treebook/app/controllers/statuses_controller.rb",
+		"/Users/goredsox24455/cg-ruby/app/assets/stylesheets/custom.css.scss",
+		"/Users/goredsox24455/cg-ruby/app/views/static_content/home.html.erb",
+		"/Users/goredsox24455/cg-ruby/app/views/layouts/application.html.erb",
+		"/Users/goredsox24455/cg-ruby/app/assets/stylesheets/application.css",
+		"/Users/goredsox24455/cg-ruby/app/assets/stylesheets/social/_table.scss",
+		"/Users/goredsox24455/cg-ruby/app/assets/stylesheets/businesses.css.scss",
+		"/Users/goredsox24455/cg-ruby/app/assets/stylesheets/bootstrap-select.min.css",
+		"/Users/goredsox24455/cg-ruby/app/assets/stylesheets/static_content.css.scss",
+		"/Users/goredsox24455/cg-ruby/app/views/layouts/_doc_head.html.erb",
+		"/Users/goredsox24455/Projects/treebook/db/migrate/20140715191355_add_user_id_to_statuses.rb",
+		"/Users/goredsox24455/Projects/treebook/Gemfile",
+		"/Users/goredsox24455/Projects/treebook/app/views/layouts/application.html.erb",
+		"/Users/goredsox24455/cg-ruby/app/views/static_content/about.html.erb",
+		"/Users/goredsox24455/cg-ruby/app/views/layouts/social.html.erb",
+		"/Users/goredsox24455/Downloads/icon_27703/icon_27703.svg",
+		"/Users/goredsox24455/cg-ruby/app/views/blogit/posts/_form.html.erb",
+		"/Users/goredsox24455/cg-ruby/app/views/blogit/posts/index.html.erb",
+		"/Users/goredsox24455/cg-ruby/app/views/static_content/pricing.html.erb",
+		"/Users/goredsox24455/cg-ruby/app/controllers/businesses_controller.rb",
+		"/Users/goredsox24455/Documents/Cognate.com/icon_2729/icon_2729.svg",
+		"/Users/goredsox24455/cg-ruby/app/views/layouts/_header.html.erb",
+		"/Users/goredsox24455/cg-ruby/app/views/static_content/terms.html.erb",
+		"/Users/goredsox24455/cg-ruby/app/views/static_content/_faq.html.erb",
+		"/Users/goredsox24455/cg-ruby/config/locales/en.yml",
+		"/Users/goredsox24455/cg-ruby/app/views/static_content/construction.html.erb",
+		"/Users/goredsox24455/cg-ruby/app/views/layouts/homepage.html.erb",
+		"/Users/goredsox24455/cg-ruby/app/controllers/application_controller.rb",
+		"/Users/goredsox24455/cg-ruby/app/views/static_content/faq.html.erb",
+		"/Users/goredsox24455/cg-ruby/app/assets/stylesheets/pricing.css.scss",
+		"/Users/goredsox24455/cg-ruby/app/views/businesses/index.html.erb",
+		"/Users/goredsox24455/cg-ruby/app/views/businesses/_business_form.html.erb",
+		"/Users/goredsox24455/cg-ruby/app/views/businesses/show.html.erb",
+		"/Users/goredsox24455/Downloads/data_clean.sql",
+		"/Users/goredsox24455/cg-ruby/config/database.yml",
+		"/Users/goredsox24455/Downloads/HTML/index.html",
+		"/Users/goredsox24455/cg-ruby/app/views/user_mailer/signup_notification.text.erb",
+		"/Users/goredsox24455/cg-ruby/app/views/user_mailer/reg_notification.text.erb",
+		"/Users/goredsox24455/cg-ruby/app/helpers/application_helper.rb",
+		"/Users/goredsox24455/cg-ruby/app/views/user_mailer/password_reset.text.erb",
+		"/Users/goredsox24455/cg-ruby/app/views/user_mailer/biz_expire_notification.text.erb",
+		"/Users/goredsox24455/cg-ruby/app/views/user_mailer/user_notification.text.erb",
+		"/Users/goredsox24455/cg-ruby/app/views/user_mailer/biz_notification.text.erb",
+		"/Users/goredsox24455/cg-ruby/app/helpers/sessions_helper.rb",
+		"/Users/goredsox24455/cg-ruby/app/controllers/users_controller.rb",
+		"/Users/goredsox24455/Downloads/codepen_JqfEx/css/style.css",
+		"/Users/goredsox24455/Downloads/codepen_JqfEx/config.rb",
+		"/Users/goredsox24455/Downloads/codepen_JqfEx/index.html",
+		"/Users/goredsox24455/Downloads/codepen_JqfEx/js/prefixfree.min.js",
+		"/Users/goredsox24455/Downloads/codepen_JqfEx/js/modernizr.js",
+		"/Users/goredsox24455/Downloads/codepen_JqfEx/js/index.js",
+		"/Users/goredsox24455/cg-ruby/config/environments/development.rb",
+		"/Users/goredsox24455/cg-ruby/app/views/layouts/_footer.html.erb",
+		"/Users/goredsox24455/cg-ruby/app/views/social/nameable_detail.html.erb",
+		"/Users/goredsox24455/cg-ruby/app/views/users/new.html.erb",
+		"/Users/goredsox24455/cg-ruby/app/views/users/index.html.erb",
+		"/Users/goredsox24455/cg-ruby/app/views/layouts/_ganalytics.html.erb",
+		"/Users/goredsox24455/Documents/Cogname.com/MA Landing Page/one-page-wonder.css",
+		"/Users/goredsox24455/Documents/all-in-one-seo-pack/aioseop_module.css",
+		"/Users/goredsox24455/Projects/treebook/app/views/devise/registrations/new.html.erb",
+		"/Users/goredsox24455/Downloads/wmuSlider-master/demo/css/demo.css",
+		"/Users/goredsox24455/cg-ruby/app/assets/stylesheets/users.css.scss",
+		"/Users/goredsox24455/cg-ruby/app/views/static_content/actual_use.html.erb",
+		"/Users/goredsox24455/cg-ruby/app/views/static_content/team.html.erb",
+		"/Users/goredsox24455/cg-ruby/app/views/static_content/why.html.erb",
+		"/Users/goredsox24455/Projects/smellslikebakin - interactive/contact.html",
+		"/Users/goredsox24455/Projects/smellslikebakin - interactive/js/jquery.js",
+		"/Users/goredsox24455/cg-ruby/app/views/static_content/contact.html.erb",
+		"/Users/goredsox24455/Projects/smellslikebakin - interactive/pricing.html",
+		"/Users/goredsox24455/Projects/Developer Journey/Programming/JSFoundations.html",
+		"/Users/goredsox24455/Projects/Developer Journey/Programming/JSFoundations.js",
+		"/Users/goredsox24455/Projects/Developer Journey/Programming/JS Foundations",
+		"/Users/goredsox24455/Projects/Developer Journey/Programming/introp.html",
+		"/Users/goredsox24455/Projects/Developer Journey/Programming/introscript.js",
+		"/Users/goredsox24455/Projects/Developer Journey/adding-css/start/css/mediaqueries.html",
+		"/Users/goredsox24455/Projects/Developer Journey/adding-css/start/css/mqnarrow.css",
+		"/Users/goredsox24455/Projects/Developer Journey/adding-css/start/css/mediaq_style.css",
+		"/Users/goredsox24455/Projects/Developer Journey/Intro to Programming/introp.html",
+		"/Users/goredsox24455/Projects/Developer Journey/adding-css/start/css/mqwider.css",
+		"/Users/goredsox24455/Projects/Developer Journey/adding-css/start/css/animations.html",
+		"/Users/goredsox24455/Projects/Developer Journey/adding-css/start/css/animate.css",
+		"/Users/goredsox24455/Projects/Developer Journey/adding-css/start/css/animation_style.css",
+		"/Users/goredsox24455/Projects/Developer Journey/adding-css/start/css/transitions.html",
+		"/Users/goredsox24455/Projects/Developer Journey/adding-css/start/css/3dTran.css",
+		"/Users/goredsox24455/Projects/Developer Journey/adding-css/start/css/transition_style.css",
+		"/Users/goredsox24455/Documents/Cogname.com/transition_style.css",
+		"/Users/goredsox24455/Documents/Cogname.com/transitions.html",
+		"/Users/goredsox24455/Documents/Cogname.com/jquery.js",
+		"/Users/goredsox24455/Projects/Developer Journey/index.html",
+		"/Users/goredsox24455/Projects/Developer Journey/adding-css/start/css/Values_Units_style.css",
+		"/Users/goredsox24455/Projects/Developer Journey/adding-css/start/css/Values_and_Units.html",
+		"/Users/goredsox24455/Projects/Developer Journey/adding-css/start/css/length-units.css",
+		"/Users/goredsox24455/Projects/Developer Journey/adding-css/start/css/absolute-length-units.css",
+		"/Users/goredsox24455/Projects/Developer Journey/adding-css/start/css/selectors_style.css",
+		"/Users/goredsox24455/Projects/Developer Journey/adding-css/start/css/css_style_selectors.html",
+		"/Users/goredsox24455/Documents/Cogname.com/COGNAME-dB and Website/COGNAME-Website/Styles.css",
+		"/Users/goredsox24455/Projects/Developer Journey/HTML intro:guide/different_folder/anotherpage.html",
+		"/Users/goredsox24455/Downloads/adding-css/start/css/more-styles.css",
+		"/Users/goredsox24455/Downloads/adding-css/start/index.html",
+		"/Users/goredsox24455/Downloads/adding-css/start/css/style.css",
+		"/Users/goredsox24455/Projects/Developer Journey/adding-css/start/css/slectors-style.css",
+		"/Users/goredsox24455/Downloads/adding-css/start/css/css_style_selectors.html",
+		"/Users/goredsox24455/Downloads/adding-css/start/css/slectors-style.css",
+		"/Users/goredsox24455/Downloads/adding-css/start/style.css",
+		"/Users/goredsox24455/Projects/Developer Journey/css/style.css",
+		"/Users/goredsox24455/Projects/Developer Journey/SmellsLikeBakin",
+		"/Users/goredsox24455/Projects/Developer Journey/HTML intro:guide/htmlintro.html",
+		"/Users/goredsox24455/Projects/Developer Journey/htmlintro.html",
+		"/Users/goredsox24455/Projects/Developer Journey/anotherpage.html",
+		"/Users/goredsox24455/Projects/Developer Journey/css/normalize.css",
+		"/Users/goredsox24455/Projects/Developer Journey/css/grid.css",
+		"/Users/goredsox24455/Projects/Developer Journey/css/style1.css"
+	],
+	"find":
+	{
+		"height": 25.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"!",
+			"name",
+			"exten",
+			"extension",
+			"recomm",
+			"sr-only",
+			"search",
+			"id",
+			"headl",
+			"logo",
+			"559",
+			"560",
+			"@",
+			"btn",
+			"span",
+			"h2",
+			"h1",
+			"h2",
+			"h1",
+			"logo",
+			"img",
+			"btn"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "Gemfile.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 214.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

@@ -1,0 +1,32 @@
+ <thead>
+    <td><%= sortable "name_objects.name", "Name" %></td>
+    <td>Owned By</td>
+    <td>Product Type</td>
+    <td>Website</td>
+    <% if admin? %>
+      <td><%= sortable "products.created_at", "Date Submitted" %></td>
+      <td>Edit</td>
+      <td>Delete</td>
+    <% end %>
+  </thead>
+  <% @products.each do |product| %>
+    <tr<%= ' class=expired' if product.payment_expired? %>>
+      <td>
+        <%= link_to product.name_object.name, product_path(product) %>
+      </td>
+      <td>
+        <% if product.business.nil? %>
+          <%= product.name_object.user.username %>
+        <% else %>
+          <%= link_to product.business.name_object.name, business_path(product.business) %>
+        <% end %>
+      </td>
+      <td><%= product.product_types[0].label unless product.product_types.empty? %></td>
+      <td><%= link_to product.link, url_with_protocol(product.link), target: '_blank' unless product.link.blank? %></td>
+      <% if admin? %>
+        <td><%= product.created_at.to_formatted_s(:date) %></td>
+        <td><%= link_to "edit", edit_product_path(product) %></td>
+        <td><%= link_to "delete", product_path(product), method: :delete, confirm: "Are you sure?" %></td>
+      <% end %>
+    </tr>
+  <% end %>

@@ -1,0 +1,86 @@
+<!-- content start -->
+<table class="row">
+<tr>
+<td class="wrapper last">
+
+<table class="twelve columns">
+<tr>
+<td>
+
+<%= image_tag attachments['coglogo-color.png'].url, class: "hero-img" %>
+<br>
+<h4>Hi, <%= @biz.user.name %></h4>
+<p class="lead">Thank you for registering with Cognate.</p>
+
+</td>
+<td class="expander"></td>
+</tr>
+</table>
+
+</td>
+</tr>
+</table>
+
+
+<table class="row">
+<tr>
+<td class="wrapper last">
+
+<table class="twelve columns">
+<tr>
+<td class="six sub-columns">
+  <table class="trademark-info">
+    <tr class="trademark">
+      <td class="tm-label">
+        <h6><strong>Trademark</strong></h6>
+      </td>
+      <td class="tm-value">
+        <h6><%= @biz.name_object.name %></h6>
+      </td>
+    <tr>
+      <td class="tm-label">Use Status</td>
+      <td class="tm-value"><%= @status %></td>
+    </tr>
+    <tr>
+      <td class="tm-label">Date of First Use</td>
+      <td class="tm-value"><%= @biz.date_of_first_use.to_s :date if @biz.date_of_first_use %></td>
+    </tr>
+    <tr>
+      <td class="tm-label">Location</td>
+      <td class="tm-value"><%= @biz.city.titleize %>, <%= @biz.state.state %></td>
+    </tr>
+    <tr>
+      <td class="tm-label">Registration #</td>
+      <td class="tm-value"><%= @biz.serial_number %></td>
+    </tr>
+    <tr>
+      <td class="tm-label">Date Registered</td>
+      <td class="tm-value"><%= @biz.created_at.to_s :date %></td>
+    </tr>
+  </table>
+</td>
+
+<td class="six sub-columns">
+  <table class="panel transaction-info">
+    <tr>
+      <td class="tx-label">
+        Term
+      </td>
+      <td class="tx-value">
+        <%= @biz.price_tier.short_label %>
+      </td>
+    </tr>
+    <tr>
+      <td class="tx-label">
+        Amount paid
+      </td>
+      <td class="tx-value">
+        <%= number_to_currency (@biz.name_object.transactions.order(created_at: :desc).first.amount_dollars) %>
+      </td>
+    </tr>
+  </table>
+</td>
+<td class="expander"></td>
+</tr>
+</table>
+

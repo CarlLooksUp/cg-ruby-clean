@@ -1,0 +1,26 @@
+<h1>Users list</h1>
+
+<div id="users-list">
+
+  <%= will_paginate @users, renderer: BootstrapPagination::Rails %>
+  <table class="table table-striped table-hover name_list">
+    <thead>
+      <td><%= sortable "last_name" %></td>
+      <td>Username</td>
+      <td>email</td>
+      <td><%= sortable "created_at" %></td>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.username %></td>
+          <td><%= user.email %></td>
+          <td><%= user.created_at %></td>
+          <td><%= link_to "edit", edit_user_path(user) %>
+          <td><%= link_to "destroy", user, method: :delete %>
+        </tr>
+      <%end %>
+    </tbody>
+  </table>
+</div>

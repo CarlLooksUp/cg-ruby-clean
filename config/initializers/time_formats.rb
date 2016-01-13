@@ -1,0 +1,10 @@
+#adding custom date/time formats
+Time::DATE_FORMATS[:date] = '%Y-%m-%d'
+Time::DATE_FORMATS[:year] = '%Y'
+Time::DATE_FORMATS[:year_month] = '%m-%Y'
+Time::DATE_FORMATS[:year_month_day] = '%m-%d-%Y'
+DateTime::DATE_FORMATS[:date] = '%Y-%m-%d'
+DateTime::DATE_FORMATS[:year] = '%Y'
+DateTime::DATE_FORMATS[:year_month] = '%m-%Y'
+DateTime::DATE_FORMATS[:year_month_day] = '%m-%d-%Y'
+DateTime::DATE_FORMATS[:american_date] = '%m-%d-%Y'

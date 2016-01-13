@@ -1,0 +1,57 @@
+<% provide(:title, 'Create a new coupon') %>
+<% provide(:modal_title, 'Enter the email for the coupon recipient') %>
+<% provide(:modal_identifier, 'coupon_email_modal') %>
+<% content_for :modal_body do %>
+  <%= form_tag '/coupons/email', remote: true do %>
+    <div class="form-group">
+      <%= text_field_tag :email, '', placeholder: 'Email Address',
+                                     class: 'form-control' %>
+    </div>
+    <%= hidden_field_tag :email_coupon_id, '' %>
+    <%= submit_tag :send %>
+
+  <% end %>
+
+<% end %>
+
+<h1>Coupon Creator</h1>
+
+<div class="row">
+  <%= simple_form_for(@coupon, remote: true, html: { class: 'form-horizontal'  }) do |f| %>
+    <%= f.input :code, placeholder: 'Coupon code',
+                       label_html: { class: 'col-md-4' } %>
+    <div class="form-group string">
+      <%= label_tag :series_number, 'Number of coupons in series', class: 'control-label col-md-4' %>
+      <div class="col-md-6">
+        <%= text_field_tag :series_number, '', class: 'form-control' %>
+      </div>
+    </div>
+    <%= f.input :amount_off, placeholder: 'Amount off',
+                       label_html: { class: 'col-md-4' } %>
+    <%= f.input :percent_off, placeholder: 'Percent off',
+                       label_html: { class: 'col-md-4' } %>
+    <%= f.input :expiration_date, as: :date,
+                                  start_year: Date.today.year,
+                                  end_year: Date.today.year + 5,
+                                  prompt: true,
+                                 label_html: { class: 'col-md-4' } %>
+    <%= f.input :number_of_uses, placeholder: 'Number of uses',
+                                 label_html: { class: 'col-md-4' } %>
+    <%= f.submit class: 'btn btn-primary col-md-offset-4' %>
+  <% end %>
+</div>
+
+<div class="row">
+  <h3>Results</h3>
+  <table id="results_table" class="table table-striped table-hover">
+    <thead>
+      <td>Code</td>
+      <td>Discount</td>
+      <td>Uses</td>
+      <td>Expiration Date</td>
+    </thead>
+    <tbody>
+
+    </tbody>
+  </table>
+</div>

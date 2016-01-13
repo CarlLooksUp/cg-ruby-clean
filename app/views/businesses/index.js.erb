@@ -1,0 +1,49 @@
+
+$(function () {
+	$('DIV#bus_container').append("<%= j(render partial: 'businesses', locals: { businesses: @businesses}) %>");
+	$('#bus_page').html("<%= j(will_paginate @businesses, inner_window: 2, renderer: BootstrapPagination::Rails) %>");
+	$('DIV#result-count').html("<%= j("#{@businesses.count} Result(s) Found") %>");
+	$('TD#source-note').hover(function() {
+      	var source_color = $(this).css('border-left-color');
+      	var source_note = $(this).attr("data-source-note");
+      	$(this).html('<div id="source-pop-out"></div>');
+      	$('DIV#source-pop-out').animate({width: '150px'},200, function() {
+          $(this).css('background-color',source_color);
+          $(this).html(source_note);
+      	}); 
+    	},
+    	function() {
+      		$('DIV#source-pop-out').animate({width: '1px'}, 150, function() { 
+        	$(this).html('');
+        	$(this).remove();
+      	});
+    });
+  	
+  	$('UL.pagination li a').removeAttr('href');
+
+  	$('UL.pagination li').on('click', function(ev) {	
+    	var page_number = this.textContent;
+    	
+    	if (baseText(page_number) == 'Next') {
+    		if ($('UL.pagination>li.next').attr('class') == 'next disabled') {
+    		} else {
+    			var rel_next = $('UL.pagination>li>a[rel~="next"]:eq(0)').text();
+    			$search_ajax(rel_next);
+    		};
+    	} else if (baseText(page_number) == 'Previous'){ 
+    		if ($('UL.pagination>.prev').attr('class') == 'prev disabled') {
+    		} else {
+    			var rel_prev = $('UL.pagination>li>a[rel~="prev"]:eq(1)').text();
+    			$search_ajax(rel_prev);
+    		};
+    	} else {
+    		if ($(this).attr('class') == 'active') {
+    		} else {
+    			$search_ajax(page_number);
+    		};
+    	};  	
+  	});
+
+});
+
+

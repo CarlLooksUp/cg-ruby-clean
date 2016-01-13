@@ -1,0 +1,17 @@
+<% provide :title, "Ski Areas" %>
+<% provide :header_image, image_path("ski_area_header_wide.jpg") %>
+<div class="container">
+  <h1>Ski Area Names</h1>
+  <div class="row" id="description">
+    <div class="col-md-12">
+      <p>
+        Browse through every ski area name in the US and Canada! Sort by name, city, state, or country.
+      </p>
+
+      <p>
+        Did we miss a mountain or make a mistake? <%= link_to "Let Us Know", contact_path %>
+      </p>
+    </div>
+  </div>
+  <%= render 'social/nameable_table' %>
+</div>

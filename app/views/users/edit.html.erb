@@ -1,0 +1,28 @@
+<h1>Edit profile</h1>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <%= simple_form_for(@user, :html => {:class => 'form-horizontal'}) do |f| %>
+      <% render 'shared/error_messages' %>
+
+      <a href="#" id="password_toggle">Change password</a>
+      <div id="change_password" class="collapse">
+        <div class="form-group">
+          <%= label_tag :current_password, "Current password", class: 'optional control-label col-md-2' %>
+          <div class='col-md-6'>
+            <%= password_field_tag :current_password, nil, class: 'optional form-control password'  %>
+          </div>
+        </div>
+        <%= hidden_field_tag :new_password, "false" %>
+        <%= f.input :password, label_html: { class: 'col-md-2' } %>
+        <%= f.input :password_confirmation, label_html: { class: 'col-md-2' } %>
+      </div>
+
+      <%= f.input :name, label_html: { class: 'col-md-2' } %>
+      <%= f.input :email, label_html: { class: 'col-md-2' } %>
+      <%= f.input :username, label_html: { class: 'col-md-2' } %>
+
+      <%= f.submit "Edit", class: "btn btn-large btn-primary col-md-offset-7 col-md-2" %>
+    <% end %>
+  </div>
+</div>

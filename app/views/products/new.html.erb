@@ -1,0 +1,87 @@
+<h1>New Product Form</h1>
+<div class="row">
+  <div class="col-md-8 col-offset-md-2">
+    <div id="tabContainer" class="well">
+      <%= simple_form_for(@product, html: { class: 'form-horizontal', onsubmit: 'return false;' }) do |f| %>
+        <%= f.simple_fields_for @product.name_object do |name_form| %>
+          <%= name_form.input :name, label: "Trademark",
+                                     label_html: { class: 'col-md-4'},
+                                     input_html: { class: 'col-md-6'},
+                                     disabled: (not @is_new),
+                                     tooltip: t(:trademark, scope: :product_form) %>
+          <%= name_form.input :id, as: :hidden %>
+        <% end %>
+        <%= f.input :is_service, as: :button_radio, label: "This is a...",
+                                                    collection: [["Service", true], ["Good", false]],
+                                                    label_html: { class: 'col-md-4' },
+                                                    tooltip: t(:is_service, scope: :product_form) %>
+        <div class="form-group product-category">
+          <%= label_tag :top_level_product_type, "General Product Category", class: 'control-label col-md-4' %>
+          <div id="goodsSelect" class="col-md-6 hide">
+            <%= collection_select :top_level_product_type_goods, :product_type_id,
+                                  @goods,
+                                  :id,
+                                  :label,
+                                  include_blank: true,
+                                  tooltip: t(:top_level_product_category, scope: :product_form) %>
+          </div>
+          <div id="servicesSelect" class="col-md-6">
+            <%= collection_select :top_level_product_type_services, :product_type_id,
+                                  @services,
+                                  :id,
+                                  :label,
+                                  include_blank: true,
+                                  html_options: { disabled: true },
+                                  tooltip: t(:top_level_product_category, scope: :product_form) %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= label_tag :product_product_types, "Specific Product Category", class: 'control-label col-md-4' %>
+          <div class="col-md-6">
+            <%= autocomplete_field_tag :product_product_types, '', autocomplete_product_type_label_products_path,
+                                       multiple: true,
+                                       data: { delimiter: '; '},
+                                       size: 75,
+                                       class: 'form-control',
+                                       tooltip: t(:product_category, scope: :product_form) %>
+          </div>
+        </div>
+
+        <%= f.input :description, label_html: { class: 'col-md-4'},
+                                  tooltip: t(:description, scope: :product_form) %>
+        <%= f.input :date_of_first_use, as: :date, end_year: Date.today.year - 90,
+                                        start_year: Date.today.year,
+                                        prompt: true,
+                                        label_html: { class: 'col-md-4'},
+                                        label: 'Date of First Use',
+                                        tooltip: t(:date_of_first_use, scope: :product_form) %>
+        <%= f.input :business_name, as: :autocomplete,
+                                    url: autocomplete_name_object_name_products_path,
+                                    input_html: { data: { scope: "owned_by(" + current_user.id.to_s + ")" } },
+                                    label_html: { class: 'col-md-4' },
+                                    tooltip: t(:business, scope: :product_form) %>
+
+        <%= f.input :product_image_file, as: :file, 
+                                         label_html: { class: 'col-md-4' },
+                                         tooltip: t(:product_image_file, scope: :product_form) %>
+        <%= f.input :logo_image_file, as: :file, 
+                                      label_html: { class: 'col-md-4' },
+                                      tooltip: t(:logo_image_file, scope: :product_form) %>
+        <div class="form-group">
+          <div class="col-md-6 col-md-offset-6">
+            <%= button_tag "Add Another Product", id: 'product_add_and_continue',
+                                                  class: 'btn btn-large btn-primary',
+                                                  data: { action: product_add_and_continue_path } %>
+            <%= button_tag "Save & Checkout", id: 'product_add_and_checkout',
+                                              class: 'btn btn-large btn-success',
+                                              data: { action: product_add_and_checkout_path } %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-3">
+  <%= render partial: "users/cart", locals: { cart: current_user.cart } %>
+  </div>
+</div>

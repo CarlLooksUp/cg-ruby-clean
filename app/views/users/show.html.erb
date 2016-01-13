@@ -1,0 +1,117 @@
+<% provide :title, @user.username %>
+<h1>My Account: <%= @user.username %></h1>
+<div id="user-info">
+  <div class="row">
+    <div class="col-md-1">
+      <strong>Name</strong>
+    </div>
+
+    <div class="col-md-2">
+      <%= @user.name %>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-md-1">
+      <strong>Email</strong>
+    </div>
+
+    <div class="col-md-2">
+      <%= @user.email %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <% if @user==current_user %>
+        <%= link_to "Edit info", edit_user_path(@user)  %> |
+        <%= link_to "Delete profile", @user, method: :delete, data: { confirm: "Delete your user profile?" } %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<hr />
+<h3>My Listed Trademarks</h3>
+<div id="user-data">
+  <div id="search_bar" class="row">
+    <%= form_tag profile_path, :method => 'get' do %>
+      <%= hidden_field_tag :direction, params[:direction] %>
+      <%= hidden_field_tag :sort, params[:sort] %>
+      <p>
+        <%= text_field_tag :search, params[:search]  %>
+        <%= submit_tag "Search", name: nil, class: 'btn btn-primary' %>
+      </p>
+    <% end %>
+  </div>
+
+  <div id="table_row" class="row">
+    <%= will_paginate @name_objects, renderer: BootstrapPagination::Rails %>
+    <table class="table table-striped table-hover name_list">
+      <thead>
+        <td><%= sortable "name" %></td>
+        <td>Type</td>
+        <td>Term</td>
+        <td>Expires on</td>
+      </thead>
+      <% if @name_objects.size > 0 %>
+      <% @name_objects.each do |name_obj| %>
+      <tr<%= ' class=expired' if name_obj.nameable_type == 'Business' and not Business.find(name_obj.nameable_id).payment_expire.nil? and Business.find(name_obj.nameable_id).payment_expire < Time.now %>>
+        <% if name_obj.nameable_type == 'Business' or name_obj.nameable_type == 'Product' and current_user.id == name_obj.user.id %>
+          <% path_base = name_obj.nameable_type.parameterize %>
+          <% edit_link = true %>
+        <% else %>
+          <% path_base = "social_" + name_obj.nameable_type.parameterize %>
+          <% edit_link = false %>
+        <% end %>
+        <td><%= link_to name_obj.name, self.send("#{path_base}_path", name_obj.nameable_id) %></td>
+        <td>
+          <% if name_obj.nameable_type == 'Business' %>
+            <% biz = (Business.find name_obj.nameable_id) %>
+            <% biz_status = biz.status %>
+            <%= biz_status == "full" ? "In Use" : biz_status.titleize %>
+          <% elsif name_obj.nameable_type == 'Product' %>
+            <% product = Product.find name_obj.nameable_id %>
+          <% else %>
+            <%= name_obj.nameable_type.humanize %>
+          <% end %>
+        </td>
+        <td><%= biz.price_tier.short_label unless biz.nil? or biz.price_tier.nil? %></td>
+        <td>
+          <% if not biz.nil? and not biz.payment_expire.nil? %>
+            <% if not biz.price_tier.nil? and (biz.price_tier.machine_label == 'lifetime' or biz.price_tier.machine_label == 'life_renewal') %>
+              <%= "Lifetime" %>
+            <% else %>
+              <%= biz.payment_expire.to_s :date %>
+            <% end %>
+          <% end %>
+        </td>
+        <% if edit_link %>
+          <td>
+						<% if name_obj.nameable_type == 'Business' %>
+							<%= link_to "Renew", businesses_renew_path(biz) %>
+						<% elsif name_obj.nameable_type == 'Product' %>
+              <%= link_to "Renew", products_renew_path(product) %>
+						<% end %>
+					</td>
+          <td><%= link_to "Edit",
+                  self.send("edit_#{path_base}_path",
+                  name_obj.nameable_id) %>
+          </td>
+          <td><%= link_to "Delete",
+                  self.send("#{path_base}_path", name_obj.nameable_id),
+                  method: :delete,
+                  data: { confirm: "Delete this entry?" } %>
+          </td>
+        <% end %>
+      </tr>
+      <% end %>
+      <% else %>
+        <tr>
+          <td colspan="4" class="text-center">
+            <%= link_to "Register a Name", new_business_path, class: 'text-center btn btn-lg btn-primary' %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+
+</div>

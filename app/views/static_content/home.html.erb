@@ -1,0 +1,150 @@
+<% provide(:description, "Only 4% of businesses register with the trademark office. For everyone else, there's Cognate. The fast and affordable way to claim to your trademark rights.") %>
+<%= image_tag "beta.png", class: 'beta-logo' %>
+<div id="home">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="text-center"><strong>Only 4% of businesses register with the trademark office. For everyone else, there's Cognate</strong></h1>
+      </div>
+    </div>
+    <div class="row" id="logos">
+      <div class="col-md-12">
+        <%= image_tag 'coglogo-white.png' , class: 'img-responsive img-center home-logo' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="text-center">A <em>brand</em> new way to claim your trademark rights</h2>
+      </div>
+    </div>
+  </div>
+</div>
+<hr id="barOne">
+<div id="features">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <%= image_tag "store_bg.png", width: 150, height: 150, class: "img-center" %>
+        <h1 class="text-center">Your Business</h1>
+        <p class="text-center">You use certain names to identify your business and products or services.</p>
+      </div>
+      <div class="col-md-4">
+        <%= image_tag "us_shield.png", width: 150, height: 150, class: "img-center" %>
+        <h1 class="text-center">Your Rights</h1>
+        <p class="text-center">Under US law <%= link_to "use", actual_use_path %> of these names gives you legally defensible trademark rights.</p>
+      </div>
+      <div class="col-md-4">
+        <%= image_tag "user_laptop.png", width: 150, height: 150, class: "img-center" %>
+        <h1 class="text-center">Claim Them</h1>
+        <p class="text-center"><%= link_to "Claim", new_business_path %> these rights on Cognate providing proof of use and date of first use for your mark.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<hr id="barTwo">
+<div id="benefitsChart">
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th class="features_column">Feature</th>
+      <th>COGNATE Listing</th>
+      <th>U.S. Trademark Office</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Public claim to established rights based on use in commerce</td>
+      <td class="check_mark"><span class="glyphicon glyphicon-ok"></span></td>
+      <td class="check_mark"><span class="glyphicon glyphicon-ok"></span></td>
+    </tr>
+    <tr>
+      <td>Listing in online database</td>
+      <td class="check_mark"><span class="glyphicon glyphicon-ok"></span></td>
+      <td class="check_mark"><span class="glyphicon glyphicon-ok"></span></td>
+    </tr>
+    <tr>
+      <td>No refusals based on 3rd party trademark claims</td>
+      <td class="check_mark"><span class="glyphicon glyphicon-ok"></span></td>
+      <td class="x_icon"><span class="glyphicon glyphicon-remove"></span></td>
+    </tr>
+    <tr>
+      <td>Complete listing in under 8 minutes</td>
+      <td class="check_mark"><span class="glyphicon glyphicon-ok"></span></td>
+      <td class="x_icon"><span class="glyphicon glyphicon-remove"></span></td>
+    </tr>
+    <tr>
+      <td>Database contains federal, state, and common-law trademarks</td>
+      <td class="check_mark"><span class="glyphicon glyphicon-ok"></span></td>
+      <td class="x_icon"><span class="glyphicon glyphicon-remove"></span></td>
+    </tr>
+    <tr>
+      <td>Search includes marks that have trademark rights but no government registration</td>
+      <td class="check_mark"><span class="glyphicon glyphicon-ok"></span></td>
+      <td class="x_icon"><span class="glyphicon glyphicon-remove"></span></td>
+    </tr>
+    <tr>
+      <td>Right to use "TM" and "SM" symbols</td>
+      <td class="check_mark"><span class="glyphicon glyphicon-ok"></span></td>
+      <td class="check_mark"><span class="glyphicon glyphicon-ok"></span></td>
+    </tr>
+    <tr>
+      <td>Public notice of your claim of ownership of your mark</td>
+      <td class="check_mark"><span class="glyphicon glyphicon-ok"></span></td>
+      <td class="check_mark"><span class="glyphicon glyphicon-ok"></span></td>
+    </tr>
+    <tr>
+      <td>Establish a timeline of use of your mark</td>
+      <td class="check_mark"><span class="glyphicon glyphicon-ok"></span></td>
+      <td class="check_mark"><span class="glyphicon glyphicon-ok"></span></td>
+    </tr>
+    <tr>
+      <td>Exclusive rights to use mark nationwide in connection with goods/services</td>
+      <td class="x_icon"><span class="glyphicon glyphicon-remove"></span></td>
+      <td class="check_mark"><span class="glyphicon glyphicon-ok"></span></td>
+    </tr>
+    <tr>
+      <td>Right to use federal registration symbol "®”</td>
+      <td class="x_icon"><span class="glyphicon glyphicon-remove"></span></td>
+      <td class="check_mark"><span class="glyphicon glyphicon-ok"></span></td>
+    </tr>
+    <tr>
+      <td>Use of registration as a basis to obtain registration in foreign countries</td>
+      <td class="x_icon"><span class="glyphicon glyphicon-remove"></span></td>
+      <td class="check_mark"><span class="glyphicon glyphicon-ok"></span></td>
+    </tr>
+    <tr>
+      <td>Ability to list with "intent-to-use"</td>
+      <td class="check_mark"><span class="glyphicon glyphicon-ok"></span></td>
+      <td class="check_mark"><span class="glyphicon glyphicon-ok"></span></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<hr id="barThree">
+<div id="callToAction">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5 call-option">
+        <h1>I Want To List a Trademark</h1>
+        <%= link_to "Claim Your Rights", new_business_path, class: 'btn btn-success btn-block' %>
+      </div>
+      <div class="col-md-2">
+        <%= image_tag "contract_icon.png", class: 'img-center' %>
+      </div>
+      <div class = "col-md-5 call-option">
+        <h1>I'm Looking For a Name</h1>
+        <%= link_to "Search Our Database", search_path, class: 'btn btn-success btn-block' %>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="disclaimer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9 col-md-offset-1">
+        <p class="text-center"><strong>COGNATE DOES NOT PROVIDE LEGAL ADVICE -- CONSULT AN ATTORNEY.
+        COGNATE DOES NOT CREATE FEDERAL OR STATE TRADEMARK REGISTRATION</strong></p>
+      </div>
+    </div>
+  </div>
+</div>

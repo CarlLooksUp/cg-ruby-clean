@@ -1,0 +1,2 @@
+module Social::GolfCoursesHelper
+end

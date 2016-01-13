@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-md-8">
+    <%= form_for(@post, html: {class: "new_blog_post", id: "new_blog_post"}) do |f| %>
+
+      <% if @post.errors.any? %>
+        <div id="error_explanation">
+          <h2><%=t :prohibited_this_post_from_being_saved, scope: 'blogit.posts', count: @post.errors.count%></h2>
+
+          <ul>
+            <% @post.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <fieldset>
+        <%= field do %>
+          <%= f.text_field :title, class: 'form-control title-input', placeholder: t(:give_your_post_a_title, scope: 'blogit.posts') %>
+        <% end %>
+
+        <%= field do %>
+          <%= f.bootsy_area :body, class: 'form-control', rows: '10', placeholder: t(:write_something_here, scope: 'blogit.posts') %>
+        <% end %>
+      </fieldset>
+
+      <%= actions do %>
+        <%= f.submit class: 'btn btn-primary' %> <%=t :or, scope: 'blogit.posts'%>
+        <%= link_to(t(:cancel, scope: 'blogit.posts'), @post.new_record? ? blog_root_path : post_path(@post)) %>
+      <% end %>
+
+    <% end %>
+  </div>
+</div>

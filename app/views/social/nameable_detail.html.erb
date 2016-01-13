@@ -1,0 +1,19 @@
+<h1><%= @singular.titleize %> Detail</h1>
+<div id="nameable-info">
+  <% @rows.each do |row| %>
+    <div class="row">
+      <div class="fieldname col-md-2 col-md-offset-4">
+        <%= row['label'] %>
+      </div>
+      <div class="detail col-md-2">
+        <% if row['key'] == 'name_object.name' %>
+          <%= @nameable.name_object.name %>
+        <% else %>
+          <%= @nameable.send(row['key']) unless @nameable.send(row['key']).blank? or 
+                                           @nameable.send(row['key']) == "(null)" %>
+        <% end %>
+      </div>
+    </div> 
+  <% end %>
+
+</div>

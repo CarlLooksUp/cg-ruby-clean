@@ -1,0 +1,30 @@
+<%= simple_form_for(@user, html: { class: 'form-horizontal' }) do |f| %>
+  <%= render 'shared/error_messages' %>
+
+  <%= f.input :first_name, tooltip: "Your full legal name will create strongest claim to your rights",
+                     label_html: { class: 'col-md-4' },
+                     input_html: { class: 'col-md-8' } %>
+  <%= f.input :last_name, tooltip: "Your full legal name will create strongest claim to your rights",
+                          label_html: { class: 'col-md-4' },
+                          input_html: { class: 'col-md-8' } %>
+  <%= f.input :email, label_html: { class: 'col-md-4' }, 
+                     input_html: { class: 'col-md-8' } %>
+  <%= f.input :username, tooltip: "A screen name for your account if you don't want your real name to appear with your registration. 
+                                   This may be your business's name but that is NOT a substitute for a registration.",
+                     label_html: { class: 'col-md-4' },
+                     input_html: { class: 'col-md-8' } %>
+  <%= f.input :password, label_html: { class: 'col-md-4' },
+                     input_html: { class: 'col-md-8' } %>
+  <%= f.input :password_confirmation, label: "Confirm Password", 
+                                      label_html: { class: 'col-md-4' },
+                                      input_html: { class: 'col-md-9' } %>
+                                        
+  <div class="form-group">
+    <%= label_tag :signup_disclaimer, raw( "I have read and understand the #{link_to "terms and conditions", terms_path, target: "_blank"}"),  
+                  class: 'col-md-4 col-md-offset-1 control-label' %>
+    <div class="col-md-1">
+      <%= check_box_tag :signup_disclaimer, true, false, class: 'form-control' %>
+    </div>
+  </div>
+  <%= f.submit "Sign Up", class: "btn btn-large btn-primary btn-block col-md-10" if submit_button %>
+<% end %>

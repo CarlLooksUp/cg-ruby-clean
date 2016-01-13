@@ -1,0 +1,42 @@
+<div class="panel-group">
+  <% t(@faq_set, scope: :faq).each_with_index do |(key, faq), index| %>
+    <div class="q-a panel">
+      <div id="question-<%= index %>" class="question panel-title">
+        <a data-toggle="collapse" href="#answer-<%= index %>">
+          <%= "#{index + 1}. " if @numbered %>
+          <%= t 'question', scope: ['faq', @faq_set, key] %>
+        </a>
+      </div>
+      <div id="answer-<%= index %>" class="answer panel-collapse collapse">
+        <div class="panel-body">
+          <% if faq.key? :link_path %>
+            <% link = link_to faq[:link_text], 
+                              send(faq[:link_path]) %>
+          <% elsif faq.key? :link_url %>
+            <% link = link_to faq[:link_text], 
+                              faq[:link_url],
+                              target: '_blank' %>
+          <% else %>
+            <% link = "" %>
+          <% end %>
+        <% #TODO: generalize to arbitrary multiple links %>                                                                         
+          <% if faq.key? :link_path_2 %>                                                                                                
+            <% link_2 = link_to faq[:link_text_2],                                                                         
+                              send(faq[:link_path_2]) %>                                                                              
+          <% elsif faq.key? :link_url_2 %>                                                                                           
+            <% link_2 = link_to faq[:link_text_2],                                                                                       
+                              faq[:link_url_2],                                                               
+                              target: '_blank' %>                                                                                       
+          <% else %>                                                                                                                  
+            <% link_2 = "" %>                                                                                                   
+          <% end %>
+          <%= t 'answer_html', link: link, link_2: link_2, scope: ['faq', @faq_set, key] %>
+          <% if @learn_more %>
+            <br /><%= link_to "Learn more...", faq_path %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+

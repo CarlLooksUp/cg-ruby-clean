@@ -1,0 +1,10 @@
+<% provide(:title, "Product Names") %>
+<% provide(:description, "Browse or search for product names that are already in use and protected by trademark law") %>
+<h1>Products index</h1>
+<table class="table table-striped table-hover name_list" id="product_table">
+ <%= render "products"  %>
+</table>
+
+<div id="product_page">
+<%= will_paginate @products, renderer: BootstrapPagination::Rails %>
+</div>

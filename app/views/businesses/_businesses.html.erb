@@ -1,0 +1,39 @@
+
+ <div id="bus_table">
+ <% if @businesses.count == 0 then %>
+    <div id="no-results"> No Results Found</div>
+  <% else %>
+    <table>
+      <thead>
+        <td></td>
+        <td><%= sortable "name_objects.name", "Name" %></td>
+        <td>Address</td>
+        <td>City</td>
+        <td>State</td>
+        <td>Website</td>
+      <% if admin? %>
+        <td><%= sortable "businesses.created_at", "Date Submitted" %></td>
+        <td>Edit</td>
+        <td>Delete</td>
+      <% end %>
+    </thead>
+    <tbody>
+      <% @businesses.each do |biz| %>
+        <tr<%= ' class=expired' if not biz.payment_expire.nil? and biz.payment_expire < Time.now %>>
+          <td id="source-note" data-source-note="<%= biz.source.upcase %><%= if not biz.status.blank? then "-" + biz.status end %>" class="flag-<%= biz.source %><%= if not biz.status.blank? then "-" + biz.status end %>"></td>
+          <td id="biz-name"><%= link_to biz.name_object.name, business_path(biz) %></td>
+          <td id="biz-address"><%= biz.address1.titleize unless biz.address1 == "(null)" or biz.address1.blank? %></td>
+          <td id="biz-city"><%= biz.city.titleize unless biz.city == "(null)" or biz.city.blank? %></td>
+          <td id="biz-state"><%= biz.state.to_s.upcase unless biz.state.nil? or biz.state.state.blank? %></td>
+          <td id="biz-website"><%= link_to biz.website, url_with_protocol(biz.website), target: '_blank' unless biz.website == "(null)" or biz.website.blank? %></td>
+      <% if admin? %>
+        <td><%= biz.created_at.to_formatted_s(:date) %></td>
+        <td><%= link_to "edit", edit_business_path(biz) %></td>
+        <td><%= link_to "delete", business_path(biz), method: :delete, confirm: "Are you sure?" %></td>
+      <% end %>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <% end %>
+  </div>

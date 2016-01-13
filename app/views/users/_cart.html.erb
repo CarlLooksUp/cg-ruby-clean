@@ -1,0 +1,27 @@
+<table id="cart" class="table table-condensed">
+  <thead>
+    <th><%# blank space for x %></th>
+    <th>Name</th>
+    <th>Price</th>
+  </thead>
+  <tbody>
+    <% cart.products.each_with_index do |product, idx| %>
+      <tr id="product<%= product.id %>">
+        <td>
+          <%= link_to( product, 
+                       method: :delete,
+                       remote: true) do %>
+            <span class="glyphicon glyphicon-remove"></span>
+          <% end %>
+        </td>
+        <td><%= product.name_object.name %></td>
+        <td><%= number_to_currency(Product.price(current_user.products_count + idx)/100.0) %></td>
+      </tr>
+    <% end %>
+    <tr class="sum">
+      <td></td>
+      <td>Total</td>
+      <td id="value"><%= number_to_currency(cart.total/100.0) %></td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,14 @@
+<% @coupons.each do |coupon| %>
+  <tr>
+    <td><%= coupon.code %></td>
+    <td><%= discount(coupon) %></td>
+    <td><%= coupon.number_of_uses %></td>
+    <td><%= coupon.expiration_date %></td>
+    <td>
+      <%= link_to 'email', '#', class: 'coupon-email', 
+                                data: { toggle: 'modal',
+                                        target: '#topModal',
+                                        coupon_id: coupon.id }%>
+    </td>
+  </tr>
+<% end %>

@@ -1,0 +1,169 @@
+<% provide(:modal_title, "Which mark would you like to renew?") %>
+<% content_for :modal_body do %>
+  <% if signed_in? %>
+    <% current_user.name_objects.order(name: :asc).each do |obj| %>
+      <% if obj.nameable_type == 'Business' %>
+        <% biz = Business.find obj.nameable_id %>
+        <p><%= link_to biz.name_object.name, businesses_renew_path(biz) %></p>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+<div id="pricingContent">
+  <div class="tableCell recommended">
+    <div class="tableHeading">
+      <h2>One Year Listing</h2>
+
+      <div class="price3 priceContainer">
+        <p>$29<sup>.95</sup></p>
+        <span>1 year</span>
+      </div> <!-- end price1 -->
+    </div> <!-- end tableHeading -->
+  </div>
+
+  <div class="tableCell">
+    <div class="tableHeading">
+      <h2>Five Year Listing</h2>
+
+      <div class="price4 priceContainer">
+        <p>$49<sup>.95</sup></p>
+        <span>5 years</span>
+      </div> <!-- end price1 -->
+    </div> <!-- end tableHeading -->
+  </div>
+
+  <table class="pricingTableContent">
+    <tr class="signUpRow">
+      <td class="recommended"><%= link_to "List Your Mark", new_business_path( price_tier: @annual_id ), class: "signUpButton" %></td>
+      <td class="noBorder"><%= link_to "List Your Mark", new_business_path( price_tier: @lifetime_id ), class: "signUpButton" %></td>
+    </tr>
+
+    <!-- Table Content -->
+    <tr>
+      <td class="recommended"><strong>Ideal For:</strong></td>
+      <td><strong>Ideal For:</strong></td>
+    </tr>
+
+    <tr class="altRow">
+      <td class="recommended">Startups and Young Companies</td>
+      <td>Businesses Operating in a Limited Geographic Region</td>
+    </tr>
+
+    <tr>
+      <td class="recommended">Making a Claim to Your Mark While Validating Your Business Model</td>
+      <td>Local Businesses That Have Gained Rights Through Use</td>
+    </tr>
+
+    <tr class="altRow">
+      <td class="recommended">Companies Considering a Name Change</td>
+      <td><strong>Five year</strong> Claim For Businesses Who Don't Need Federal Protection</td>
+    </tr>
+
+    <!-- Table Footer -->
+    <tfoot>
+      <tr>
+        <td class="recommended">
+          <h4>$29<sup>.95</sup></h4>
+          <span>One year</span>
+
+          <%= link_to "List Your Mark", new_business_path( price_tier: @annual_id ), class: "signUpButton" %>
+        </td>
+
+        <td>
+          <h4>$49<sup>.95</sup></h4>
+          <span>Five Years</span>
+
+          <%= link_to "List Your Mark", new_business_path( price_tier: @lifetime_id ), class: "signUpButton" %>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div> <!-- end tableContainer -->
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Bulk Pricing</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>One Year</th>
+        <th></th>
+        <th>Five Years</th>
+        <th></th>
+        <th>Renewals</th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tr>
+        <th>Listing Number</th>
+        <th>Price</th>
+        <th>Listing Number</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Length</th>
+        <th>Price</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td >$29.95</td>
+        <td>1</td>
+        <td>$49.95</td>
+        <td>1</td>
+        <td>1 Year</td>
+        <td>$19.95</td>
+      </tr>
+      <tr>
+        <td>2-5</td>
+        <td>$15.95</td>
+        <td>2-5</td>
+        <td>$26.95</td>
+        <td>1</td>
+        <td>5 Year</td>
+        <td>$35.95</td>
+      </tr>
+      <tr>
+        <td>6-15</td>
+        <td>$11.95</td>
+        <td>6-15</td>
+        <td>$19.95</td>
+        <td>2-5</td>
+        <td>1 Year</td>
+        <td>$11.95</td>
+      </tr>
+      <tr>
+        <td>16-29</td>
+        <td>$8.95</td>
+        <td>16-29</td>
+        <td>$14.95</td>
+        <td>2-5</td>
+        <td>5 Year</td>
+        <td>$19.95</td>
+      </tr>
+      <tr>
+        <td>30-69</td>
+        <td>$6.95</td>
+        <td>30-69</td>
+        <td>$10.95</td>
+        <td>6-15</td>
+        <td>1 Year</td>
+        <td>$8.95</td>
+      </tr>
+      <tr>
+        <td>70-99</td>
+        <td>$5.55</td>
+        <td>70-99</td>
+        <td>$8.95</td>
+        <td>6-15</td>
+        <td>5 Year</td>
+        <td>$14.95</td>
+      </tr>
+    </tbody>
+  </table>

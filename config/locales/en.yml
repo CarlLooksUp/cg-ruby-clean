@@ -1,0 +1,239 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  faq:
+    home:
+      question1:
+        question: Who should use Cognate?
+        answer_html: >
+           Everyone who has a trademark that has not been federally registered with the US Patent and Trademark Office. Even people who are thinking about using a mark in the near future can list that name under an “intent to use” application.
+
+           Everyone who is hoping to start a business, or exploring different business names should conduct a search on Cognate. We have hundreds of thousands of names that are not in the USPTO database.
+      question2:
+        question: How does Cognate business name search work?
+        answer_html: >
+          Searching works similarly to name registration. Create an account. Search from our hundreds of thousands of business names.
+      question3:
+        question: Do I need to own common law rights in my mark to make a Cognate registration?
+        answer_html: >
+          No. You may register with Cognate based on your actual intent to use that name for your business, as long as you note in the registration that it is based solely on intent. However mere ideas for names are not protectable and Cognate registration is not designed for the registration of names that are not currently in use.
+      question4:
+        question: How much does a Cognate registration cost?
+        answer_html: >
+          For a limited time you can make your Cognate registration free of charge. Your name(s) will be added to our database, notifying others of your claim to your name, helping to establish an online presence for your brand, and creating a timeline of use of your mark.
+
+    faq_page:
+      question1:
+        question: Who should use Cognate?
+        answer_html: >
+           Everyone who has a trademark that has not been federally registered with the US Patent and 
+           Trademark Office. Even people who are thinking about using a mark in the near future can %{link} 
+           that name under an “intent to use” application.
+
+           Everyone who is hoping to start a business, or exploring different business names should conduct
+           a search on Cognate. We have hundreds of thousands of names that are not in the USPTO database.
+        link_text: list
+        link_path: new_business_path
+      question2:
+        question: What are "common law" trademarks?
+        answer_html: >
+          Common law trademarks are trademark rights your business “earns” simply by using your marks in 
+          commerce in the US. Generally, the first party to use the mark on its product or service has a 
+          superior right to use the mark for their business over any other party that has adopted that mark, 
+          or filed a trademark application at a later date. This is often called "rights of first use".
+      question3:
+        question: How do I claim my common law rights?
+        answer_html: >
+          No government registration (federal, state, county, etc.) is required to create common law rights 
+          in a trademark. That is why they are called “common law” rights. Businesses are even able to use 
+          the "TM" symbol next to common law trademarks, in order to indicate their claim to common law 
+          rights. You can make a record of your common law rights by %{link} your mark on Cognate.
+        link_text: listing
+        link_path: new_business_path
+      question4:
+        question: How do I know if I've created common law rights?
+        answer_html: >
+          Your common law rights are created through actual use (in commerce) of your trademark. Visit our
+           %{link} section for more information.
+        link_text: actual use
+        link_path: actual_use_path
+      question5:
+        question: What does actual use mean?
+        answer_html: >
+          Actual use of a trademark occurs when you use your trademark in connection with your goods or 
+          services (with some caveats and conditions). For more information %{link}.
+        link_text: click here
+        link_path: actual_use_path
+      question6:
+        question: What does "in commerce" mean?
+        answer_html: >
+          "In commerce" means in the course of doing business. If you are using a name to do business and 
+          identify a product or service, it is considered in commerce. Simple registration of a domain name 
+          is not "use in commerce" when there is no associated and active website.
+      question7:
+        question: How does Cognate trademark listing work?
+        answer_html: >
+          <ol>
+            <li><i>%{link} on Cognate.</i> Creating an account is free and fast (just name, email address, 
+            password).</li> 
+            <li><i>%{link_2} Your Trademark Claim.</i> You will fill out a form similar 
+            to those used by the United States Patent and Trademark Office and individual states for trademark 
+            registration.</li>
+          </ol>
+            Your mark is now entered into our database alongside over a million other marks, 
+            including federal, state, and common law trademarks. Most importantly this creates a public 
+            record in a centralized, specialized database that you claim ownership of trademark rights in 
+            your company name or mark – literally for the whole world to see. It also gives your business an 
+            increased online presence, and a SEO boost.
+        link_text: Create an Account
+        link_path: signup_path
+        link_text_2: List
+        link_path_2: new_business_path
+      question8:
+        question: How does Cognate search work?
+        answer_html: >
+          Searching works similarly to listing. %{link}. Then %{link_2} over a million business 
+          names.
+        link_text: Create an account
+        link_path: signup_path
+        link_text_2: search
+        link_path_2: search_path
+      question9:
+        question: Do I need to own common law rights in my mark to list on Cognate?
+        answer_html: >
+          No. You may %{link} your mark on Cognate based on your actual intent to use that name for your 
+          business, as long as you note in the registration that it is based solely on intent. However mere 
+          ideas for names are not protectable and claims on Cognate are strongest when the mark is in use.
+        link_text: list
+        link_path: new_business_path
+      question10:
+        question: How much does a Cognate listing cost?
+        answer_html: >
+          Cognate listings start at $19.95 for a 4-month peroid. Check out our %{link} page for 
+          more information. As soon as your listing is complete, your mark(s) will be added to our 
+          database, notifying others of your claim to your name, helping to establish an online presence for 
+          your brand, and creating a timeline of use of your mark.
+        link_text: pricing
+        link_path: pricing_path
+      question11:
+        question: What is the difference between a business "name" and a trademark?
+        answer_html: >
+          Your business name or the name of a product or service may in fact be a trademark, but not all 
+          names are trademarks. A school called "Elm Street School" is a name, but is not classified as a 
+          business and, therefore, is not a trademark. But any name that you use in commerce to identify 
+          your product or service is considered a trademark.
+      question12:
+        question: Will a Cognate listing stand up against a federal registration?
+        answer_html: >
+          Yes, assuming your Cognate listing is an accurate reflection of your common law rights. A 
+          common law trademark can have superior rights to a federal registration in certain circumstances. 
+          If the common law mark was used first, the owner of that mark could prevent another party from 
+          federally registering a similar mark if it would create confusion about the goods or services in 
+          question.
+      question13:
+        question: What geographic area does my Cognate listing cover?
+        answer_html: >
+          Assuming your Cognate listing accurately reflects your common law rights, it is limited to the 
+          geographic region in which you use your mark, similar to a state trademark registration.
+      question14:
+        question: If I have a website, should I still use Cognate?
+        answer_html: >
+           Yes. %{link} your business name on Cognate will improve your chances of being found in trademark 
+           searches, while putting potential infringers on notice that you claim rights to your mark.
+
+           Having a website helps in this regard, but you are passively hoping to be found in trademark 
+           searches, and likely won’t be found at all unless someone knows of your company or is searching 
+           for your exact mark. Take a more active approach by listing your mark on Cognate, which puts your 
+           name into our centralized, easily accessible database alongside over a million of other federal, 
+           state, and common law marks. Not to mention creating another online presence for your brand, 
+           giving it more authority, and boosting your SEO efforts.
+        link_text: Listing
+        link_path: new_business_path
+      question15:
+        question: Why would I need to search common law trademarks?
+        answer_html: >
+          <ol>
+           <li><i>You're attempting to register a federal trademark.</i> The federal trademark application 
+           requires a signed declaration from the applicant that "to the best of his/her knowledge and belief 
+           no other person, firm, corporation, or association has the right to use the mark in 
+           commerce..."</li>
+
+           <li><i>It could save you money.</i> And time, and aggravation down the road. Create a unique name 
+           and/or logo that identifies your product or service so that you won’t have to change it later if 
+           another party claims rights to the mark you chose. A conflict will cost you time, money, and any 
+           goodwill your brand had accumulated under the disputed name.</li>
+          </ol>
+           Someone may have "common law" trademark rights simply by being the first to use a trademark in 
+           commerce, since neither federal nor state registration is required to earn common law rights. 
+           Someone with common law rights can challenge your use or registration of your trademark.
+      question16:
+        question: Why use Cognate over the existing alternatives?
+        answer_html: >
+          Cognate allows you to make a claim to your existing trademark rights at a fraction of the cost and 
+          time of the existing alternatives. Starting and running a business is an enormous and costly 
+          undertaking. Don’t waste time and money on a more expensive service without %{link} and %{link_2} 
+          here first.
+        link_text: listing
+        link_path: new_business_path
+        link_text_2: searching
+        link_path_2: search_path
+      question17:
+        question: Where else can I search common law trademarks?
+        answer_html: >
+           Traditionally there have been two options for common law searching:
+
+           <ol>
+           <li><i>Pay a search firm.</i> The two biggest firms are Thomson and Corsearch. Search packages 
+           start around $250 and prices escalate quickly, especially if you want your results in less than 
+           3 days.</li>
+
+           <li><i>Hire a lawyer (or a "legal" website such as LegalZoom).</i> This will also cost you 
+           hundreds of dollars. Many law firms will use one of the two companies above to conduct a search, 
+           and charge you on top of the search fees.</li>
+           </ol>
+      question18:
+        question: Where can I search for federal trademarks?
+        answer_html: >
+          You can search for federal trademarks on the USPTO website using their %{link}.
+        link_text: Trademark Electronic Search System (TESS)
+        link_url: http://tess2.uspto.gov/
+
+  business_form:
+    name: Your business's name/trademark
+    sic_code: Select the option that best describes your business. If none fit, select "Other - Nonclassifiable Establishments".
+    entity_type: Select your entity type. If your business hasn't yet incorporated, please leave this section blank.
+    address1: Your business address
+    website: Your company's website
+    phone: Your company's phone number
+    tagline: Your company's tagline, slogan, or motto
+    in_use?: Are you currently using this business name to conduct business? Learn more about %{actual_use}.
+    actual_use: actual use
+    plans_for_use: If you aren't currently using this mark, how do you plan on using it in the future?
+    date_of_first_use: What is the date that you first used this mark to conduct business?
+    planned_date: What is the date that you intend to begin using this mark?
+    is_interstate: Do you conduct business in more than one state?
+    operating_region: Select all states in which you do business.
+    proof_of_use: Upload a receipt, a bill, an advertisement or business card, anything to show that you are actually using the mark.
+    image: Upload your logo or a picture of your physical location
+
+  product_form:
+    trademark: The name of your Good or Service
+    is_service: Indicate whether the mark you are listing is a physical Good or a Service
+    top_level_product_category: Select the category that best describes your Product
+    product_category: > 
+      Enter more specific information about your product. Multiple tags are separated
+      by a semicolon (;). Use our suggested tags, or input your own.
+    description: Describe how you use your mark in commerce
+    date_of_first_use: > 
+      Enter the date your Product was first bought or sold in commerce. Be as specific as
+      possible, but only the Year is required.
+    business: > 
+      Select the business associated with this Product. If you have none registered with 
+      Cognate, please enter it manually.
+    product_image_file: >
+      Upload an image that shows your mark being used in association with the Product. Examples
+      include the product itself, a tag, product packaging, or advertising materials.
+    logo_image_file: > 
+      Upload a logo specific to your Product. This should not be the logo of the parent company.
+

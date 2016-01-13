@@ -1,0 +1,22 @@
+{ "State, Territory, or Commonwealth Incorporated" :
+  { "sole_proprietorship" : "Sole Proprietorship",
+    "general_partnership" : "General Partnership",
+    "lp" : "LP (Limited Partnership)",
+    "llp" : "LLP (Limited Liability Partnership)",
+    "lllp" : "LLLP (Limited Liability Limited Partnership)",
+     "llc" : "LLC (LC, Ltd., Co., Limited Liability Company)",
+    "pllc" : "PLLC (Professional Limited Liability Company)",
+    "corp" : "Corp., Inc. (Corporation, Incorporated)",
+    "pc" : "Professional Coropration (PC or P.C.)",
+    "dba" : "Doing Business As (DBA)",
+    "np" : "Non-profit Organization"
+  },
+
+  "Federal Incorporated" :
+  { "NA" : "NA (National Association)",
+    "ntsa" : "NT&SA (National Trust and Savings Association)",
+    "fcu " : "Federal Credit Union",
+    "fsb" : "Federal Savings Bank"
+  }
+}
+

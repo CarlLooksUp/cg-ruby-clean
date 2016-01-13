@@ -1,0 +1,89 @@
+<%= simple_form_for(@product, html: { class: 'form-horizontal' }) do |f| %>
+  <%= f.simple_fields_for @product.name_object do |name_form| %>
+    <%= name_form.input :name, label: "Trademark",
+                               label_html: { class: 'col-md-4'},
+                               input_html: { class: 'col-md-6'},
+                               disabled: (not @is_new),
+                               tooltip: t(:trademark, scope: :product_form) %>
+    <%= name_form.input :id, as: :hidden %>
+  <% end %>
+  <%= f.input :is_service, as: :button_radio, label: "This is a...", 
+                                              collection: [["Service", true], ["Good", false]],
+                                              label_html: { class: 'col-md-4' } %>
+  <% unless @is_new %>
+    <div class="form-group">
+      <%= label_tag :existing_product_types, "Current Product Categories", class: 'control-label col-md-4' %>
+    <% @product.product_types.each do |product_type| %>
+      <div class="col-md-6 col-md-offset-4">
+        <%= product_type_breadcrumb(product_type) %>
+          <%= link_to( '#', remote: true) do %>
+            <span class="glyphicon glyphicon-remove"></span>
+          <% end %>
+      </div>
+    <% end %>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= label_tag :top_level_product_type, "General Product Category", class: 'control-label col-md-4' %>
+    <div id="goodsSelect" class="col-md-6 hide">
+      <%= collection_select :top_level_product_type_goods, :product_type_id,
+                            @goods,
+                            :id,
+                            :label,
+                            include_blank: true,
+                            tooltip: t(:top_level_product_category, scope: :product_form) %>
+    </div>
+    <div id="servicesSelect" class="col-md-6">
+      <%= collection_select :top_level_product_type_services, :product_type_id,
+                            @services,
+                            :id,
+                            :label,
+                            include_blank: true,
+                            html_options: { disabled: true },
+                            tooltip: t(:top_level_product_category, scope: :product_form) %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :product_product_types, "Specific Product Category", class: 'control-label col-md-4' %>
+    <div class="col-md-6">
+      <%= autocomplete_field_tag :product_product_types, '', autocomplete_product_type_label_products_path, 
+                                 multiple: true,
+                                 data: { delimiter: '; '},
+                                 size: 75, 
+                                 class: 'form-control',
+                                 tooltip: "" %>
+    </div>
+  </div>
+
+  <%= f.input :description, label_html: { class: 'col-md-4'} %>
+  <%= f.input :date_of_first_use, as: :date, end_year: Date.today.year - 90,
+                                  start_year: Date.today.year,
+                                  prompt: true,
+                                  label_html: { class: 'col-md-4'},
+                                  label: 'Date of First Use',
+                                  tooltip: t(:date_of_first_use, scope: :business_form) %>
+  <%= f.input :business_id, collection: @user_businesses, label_html: { class: 'col-md-4' }, 
+                            include_blank: true %>
+
+  <%= f.input :product_image_file, as: :file, label_html: { class: 'col-md-4' } %>
+  <%= f.input :logo_image_file, as: :file, label_html: { class: 'col-md-4' } %>
+  <% if @is_new %>
+    <div class="form-group">
+      <div class="col-md-6 col-md-offset-6">
+        <%= button_tag "Add Another Product", id: 'product_add_and_continue', 
+                                              class: 'btn btn-large btn-primary', 
+                                              data: { action: product_add_and_continue_path } %>
+        <%= button_tag "Save & Checkout", id: 'product_add_and_checkout', 
+                                          class: 'btn btn-large btn-success',
+                                          data: { action: product_add_and_checkout_path } %>
+      </div>
+    </div>
+  <% else %>
+    <div class="form-group">
+      <div class="col-md-4 col-md-offset-8">
+        <%= f.submit class: 'btn btn-primary' %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

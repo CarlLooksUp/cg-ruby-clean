@@ -1,0 +1,11 @@
+<div class="form-group">
+  <%= button_tag message, class: 'col-md-2 btn btn-large btn-primary',
+                                    id: 'stripe-btn',
+                                    data: { key: Rails.application.secrets.stripe_public_key,
+                                            image: (image_path('coglogo-sq.gif')),
+                                            email: @user.email,
+                                            description: 'Upgrade',
+                                            name: 'Cognate.com',
+                                            amount: amount 
+                                           } %>
+</div>

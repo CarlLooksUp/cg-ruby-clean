@@ -1,0 +1,74 @@
+<h1>Checkout</h1>
+<div class="row">
+  <div class="col-md-8">
+    <div id="tabContainer" class="well">
+      <div id="checkout">
+
+        <%= form_tag("/pay_for_cart", method: :post, class: "simple-form form-horizontal requires-payment") do %>
+        <div id="cc-data">
+          <div class="form-group">
+            <%= label_tag :cc_num, "Credit Card Number", class: 'col-md-4 control-label' %>
+            <div class="col-md-4">
+              <%= text_field :cc_num, '', name: nil, data: {stripe: "number"}, class: 'form-control' %>
+            </div>
+            <div class="col-md-3">
+              <span id="american_express" class="cc-icon grey"></span>
+              <span id="discover" class="cc-icon grey"></span>
+              <span id="mastercard" class="cc-icon grey"></span>
+              <span id="visa" class="cc-icon grey"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= label_tag :cvc, "CVC Code", class: 'col-md-4 control-label' %>
+            <div class="col-md-2">
+              <%= text_field :cvc, '', name: nil, data: {stripe: "cvc"}, maxlength: 4, class: 'form-control' %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= label_tag :card_exp, "Expiration Date (MM/YYYY)", class: 'col-md-4 control-label' %>
+            <div class="col-md-2">
+              <%= text_field :card_exp_month, '', name: nil, data: {stripe: "exp-month"}, maxlength: 2, class: 'form-control' %>
+            </div>
+            <div class="col-md-2">
+              <%= text_field :card_exp_year, '', name: nil, data: {stripe: "exp-year"}, maxlength: 4, class: 'form-control' %>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-md-4 control-label">
+            <a data-toggle="collapse" href='#codeBox'>
+              Do you have a coupon code? <span class="glyphicon glyphicon-chevron-down"></span>
+            </a>
+          </div>
+        </div>
+
+        <div class="form-group collapse" id="codeBox">
+          <%= label_tag :coupon_code, "Coupon Code", class: 'col-md-4 control-label' %>
+          <div class="col-md-6">
+            <%= text_field :coupon_code, '', name: :coupon_code, class: 'form-control' %>
+          </div>
+        </div>
+        <%= hidden_field :stripe_pkey, '', value: Rails.application.secrets.stripe_public_key, name: nil %>
+
+        <div class="form-group">
+          <%= label_tag :"limited-disclaimer", ("COGNATE is recording my existing trademark rights and is not creating new trademark rights.
+                                                #{link_to 'See Terms of Use.', terms_path, target: '_blank'}").html_safe,
+                                                class: 'col-md-5 control-label' %>
+          <div class="col-md-1">
+            <%= check_box_tag :"limited-disclaimer", true, false, class: 'form-control' %>
+          </div>
+        </div>
+
+          <%= button_tag "Submit Payment", class: 'btn btn-success col-md-offset-8' %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <%= render partial: 'users/cart', locals: { cart: current_user.cart } %>
+  </div>
+</div>

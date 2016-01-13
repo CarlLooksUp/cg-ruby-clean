@@ -1,0 +1,203 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div id="progressImg">
+      <% if signed_in? %>
+        <%= image_tag 'progress1.png', class: 'page-1-icon page-in' %>
+        <%= image_tag 'progress2.png', class: 'page-2-icon page-hide' %>
+        <%= image_tag 'progress3.png', class: 'page-3-icon page-hide' %>
+      <% else %>
+        <%= image_tag 'progress_with_registration1.png', class: 'page-0-icon page-in' %>
+        <%= image_tag 'progress_with_registration2.png', class: 'page-1-icon page-hide' %>
+        <%= image_tag 'progress_with_registration3.png', class: 'page-2-icon page-hide' %>
+        <%= image_tag 'progress_with_registration4.png', class: 'page-3-icon page-hide' %>
+      <% end %>
+    </div>
+    <div id="legend" class="col-md-12"><span class="pull-right">* indicates required field</span></div>
+    <div id="tabContainer" class="well">
+      <% if not signed_in? %>
+        <div id="page0" class="page-in" data-page="0"> 
+          <%= render 'users/new_user', submit_button: false %>
+        </div>
+      <% end %>
+
+      <%= simple_form_for(@business, html: {class: 'form-horizontal requires-payment'}) do |f| %>
+        <% #render 'shared/error_messages' %>
+        <%= f.simple_fields_for @business.name_object do |name_form| %>
+      <div id="page1" class=<%= (signed_in?) ? "page-in" : "page-hide" %> data-page="1">
+        <%= name_form.input :name, label: "Business Name",
+                                   label_html: { class: 'col-md-4'},
+                                   input_html: { class: 'col-md-6'},
+                                   disabled: (not (@is_new or admin?)),
+                                   tooltip: t(:name, scope: :business_form) %>
+        <%= name_form.input :id, as: :hidden %>
+
+        <% end %>
+
+        <%= f.input :sic_code, collection: @sic_codes, as: :grouped_select,
+                               group_method: :last, label_method: :last,
+                               value_method: :first, label: "Business Category (SIC)",
+                               required: true,
+                               label_html: { class: 'col-md-4' },
+                               disabled: (not (@is_new or admin?)),
+                               tooltip: t(:sic_code, scope: :business_form) %>
+
+        <%= f.input :entity_type, as: :grouped_select,
+                    collection: @entity_types,
+                    group_method: :last,
+                    label_method: :last, value_method: :first,
+                    label_html: { class: 'col-md-4'},
+                    label: "Entity Type (LLC, Corp., etc...)",
+                    tooltip: t(:entity_type, scope: :business_form) %>
+        <%= f.input :tagline, label_html: { class: 'col-md-4' },
+                              label: "Your Company's Tagline",
+                              tooltip: t(:tagline, scope: :business_form) %>
+        <%= f.input :address1, label_html: { class: 'col-md-4'},
+                               label: "Address",
+                               tooltip: t(:address1, scope: :business_form) %>
+        <%= f.input :address2, label_html: { class: 'col-md-4'},
+                               label: "Line 2 (optional)" %>
+        <%= f.input :city, required: true, label_html: { class: 'col-md-4'} %>
+        <%= f.association :state, required: true, label_html: { class: 'col-md-4'}, disabled: (not (@is_new or admin?)) %>
+        <%= f.input :zip_code, label_html: { class: 'col-md-4'}, input_html: { maxlength: 5 } %>
+        <%= f.input :phone, label_html: { class: 'col-md-4'},
+                            tooltip: t(:phone, scope: :business_form) %>
+      </div>
+
+      <div id="page2" class="page-hide" data-page="2">
+        <%= f.input :website, label_html: { class: 'col-md-4'},
+                              tooltip: t(:website, scope: :business_form) %>
+        <%= f.input :image_file, as: :file, label: "Logo or Image of Your Location", label_html: { class: 'col-md-4' },
+                                 tooltip: t(:image, scope: :business_form) %>
+        <%= f.input :in_use, as: :button_radio, label: "Is this mark currently in use?", label_html: { class: 'col-md-4' },
+                             required: true,
+                             tooltip: t(:in_use?, actual_use: link_to(t(:actual_use, scope: :business_form), actual_use_path),
+                                        scope: :business_form) %>
+
+        <div id="not-used" class="collapse <%= "in" if(not @business.in_use and not @business.in_use.nil?) %>">
+          <%= f.input :plans_for_use, label_html: { class: 'col-md-4'}, required: true,
+                                      label: "Plans for Use",
+                                      tooltip: t(:plans_for_use, scope: :business_form) %>
+          <%= f.input :planned_date, as: :date, end_year: Date.today.year + 5,
+                                     start_year: Date.today.year,
+                                     prompt: true,
+                                     label_html: { class: 'col-md-4'},
+                                     label: 'Planned Date of First Use',
+                                     tooltip: t(:planned_date, scope: :business_form) %>
+        </div>
+        <div id="used" class="collapse <%= "in" if @business.in_use %>">
+          <%= f.input :date_of_first_use, as: :date, end_year: Date.today.year - 90,
+                                          start_year: Date.today.year,
+                                          prompt: true,
+                                          label_html: { class: 'col-md-4'},
+                                          label: 'Date of First Use',
+                                          tooltip: t(:date_of_first_use, scope: :business_form) %>
+          <%= f.input :is_interstate, as: :button_radio, label: "Do you sell out of state?", label_html: { class: 'col-md-4' },
+                                      required: true,
+                                      tooltip: t(:is_interstate, scope: :business_form) %>
+          <div id="interstate" class="collapse <%= "in" if @business.is_interstate %>">
+            <%= f.input :operating_region, collection: @state_abbreviations, label_html: { class: 'col-md-4' },
+                                           input_html: { multiple: true },
+                                           tooltip: t(:operating_region, scope: :business_form) %>
+          </div>
+          <%= f.input :proof_of_use_file, as: :file, label: "Proof of Use", label_html: { class: 'col-md-4' },
+                                          required: true,
+                                          tooltip: t(:proof_of_use, scope: :business_form) %>
+        </div>
+        <% if admin? and not @is_new %>
+          <%= f.input :status, as: :select, collection: @status_flags,
+                               label: "Status", label_html: { class: 'col-md-4' } %>
+          <%= f.input :source, as: :select, collection: @source_flags,
+                               label: "Source", label_html: { class: 'col-md-4' } %>
+        <% end %>
+
+        <div class="form-group collapse <%= "in" if(not  @business.in_use or @business.in_use.nil?) %>" id="in-use-disclaimer-box">
+          <%= label_tag :"in-use-disclaimer", "Marks not in use claim no legal protection.",  class: 'col-md-5 control-label' %>
+          <div class="col-md-1">
+            <%= check_box_tag :"in-use-disclaimer", true, false, class: 'form-control' %>
+          </div>
+        </div>
+      </div>
+
+      <div id="page3" class="page-hide" data-page="3">
+        <div class="form-group">
+          <%= f.input :price_tier, as: :select, collection: @price_tiers, label_method: :long_label, value_method: :id,
+                                   selected: @default_price.id,
+                                   label: "Price Tier", label_html: { class: 'col-md-4 control-label' } %>
+        </div>
+
+        <div id="cc-data">
+          <div class="form-group">
+            <%= label_tag :cc_num, "Credit Card Number", class: 'col-md-4 control-label' %>
+            <div class="col-md-4">
+              <%= text_field :cc_num, '', name: nil, data: {stripe: "number"}, class: 'form-control' %>
+            </div>
+            <div class="col-md-3">
+              <span id="american_express" class="cc-icon grey"></span>
+              <span id="discover" class="cc-icon grey"></span>
+              <span id="mastercard" class="cc-icon grey"></span>
+              <span id="visa" class="cc-icon grey"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= label_tag :cvc, "CVC Code", class: 'col-md-4 control-label' %>
+            <div class="col-md-2">
+              <%= text_field :cvc, '', name: nil, data: {stripe: "cvc"}, maxlength: 4, class: 'form-control' %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= label_tag :card_exp, "Expiration Date (MM/YYYY)", class: 'col-md-4 control-label' %>
+            <div class="col-md-2">
+              <%= text_field :card_exp_month, '', name: nil, data: {stripe: "exp-month"}, maxlength: 2, class: 'form-control' %>
+            </div>
+            <div class="col-md-2">
+              <%= text_field :card_exp_year, '', name: nil, data: {stripe: "exp-year"}, maxlength: 4, class: 'form-control' %>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-md-4 control-label">
+            <a data-toggle="collapse" href='#codeBox'>
+              Do you have a coupon code? <span class="glyphicon glyphicon-chevron-down"></span>
+            </a>
+          </div>
+        </div>
+
+        <div class="form-group collapse" id="codeBox">
+          <%= label_tag :coupon_code, "Coupon Code", class: 'col-md-4 control-label' %>
+          <div class="col-md-6">
+            <%= text_field :coupon_code, '', name: :coupon_code, class: 'form-control' %>
+          </div>
+        </div>
+        <%= hidden_field :stripe_pkey, '', value: Rails.application.secrets.stripe_public_key, name: nil %>
+
+        <div class="form-group">
+          <%= label_tag :"limited-disclaimer", ("COGNATE is recording my existing trademark rights and is not creating new trademark rights.
+                                                #{link_to 'See Terms of Use.', terms_path, target: '_blank'}").html_safe,
+                                                class: 'col-md-5 control-label' %>
+          <div class="col-md-1">
+            <%= check_box_tag :"limited-disclaimer", true, false, class: 'form-control' %>
+          </div>
+        </div>
+
+      </div>
+      </div>
+      </div>
+      <div class="col-md-8 col-md-offset-2">
+        <div id="prevBtn">
+          <button type="button" class="btn btn-primary pull-left">Prev</button>
+        </div>
+        <div id="nextBtn">
+          <button type="button" class="btn btn-primary pull-right" data-loading-text="Loading...">Next</button>
+        </div>
+
+        <div id="regSubmit" class="pull-right"><!--class reg-submit-->
+          <% onclick = "_gaq.push(['_trackPageview', '/virtual/reg-submit']);" if Rails.env.production? %>
+          <%= f.button :submit, 'List My Claim', class: 'btn btn-success btn-block', onclick: onclick %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

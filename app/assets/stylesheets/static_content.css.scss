@@ -1,0 +1,96 @@
+// Place all the styles related to the StaticContent controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.static-container {
+  // padding: 2.65em 0;
+  background: #f9f9f9;
+  color: #333;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.125em;
+  line-height: 1.62;
+  margin: 0 auto;
+  max-width: 55%;
+}
+
+h1 {
+  // color: #0D6AAB;
+  padding: 2.5% 0 2.5%;
+  font-size: 2.5em;
+  }
+
+// .Container > h3 {
+//   color: #FF7A04;
+// }
+
+#lead_paragraph {
+  font-size: 1.125em;
+  width: 28.125em;
+}
+
+#description {
+  font-size: 1.125em;
+  width: 40em;
+}
+
+.btn {
+}
+
+h4 {
+  color: #4198D5;
+}
+  
+p {
+  display: block;
+  padding-top: 1%;
+}
+
+.question {
+  font-weight: bold;
+}
+
+.panel {
+  background-color: inherit;
+}
+
+@media only screen and (max-width: 768px) {
+
+.static-container {margin: 0 1.5%;
+                   width: 81%;
+  }
+
+}
+
+@media only screen and (max-width: 615px) {
+
+h1 {font-size: 2em;}
+h4 {font-size: 1.125em;}
+.navbar-static-bottom {}
+.static-container {width: 81%;}
+
+}
+
+// @media only screen and (max-width: 480px) {
+
+// .static-container {width: 31%;}
+
+// }
+
+// @media only screen and (max-width: 375px) {
+
+// .static-container > p {margin: 10px 0;}
+
+// }
+
+// @media screen and (min-width: 769px) {
+//   h1 {
+//     font-size: 3em;
+//     padding: 35px 0 25px;
+//   }
+// }
+
+
+.centered {
+    margin-left: 30%;
+    margin-top: 75px;
+}
